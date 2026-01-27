@@ -1,0 +1,156 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
+.simpleInterface {
+    padding: 80px 20px;
+    border-radius: 32px;
+    background: linear-gradient(180deg, #010101 0%, #171717 100%);
+    position: relative;
+
+    .image {
+        position: absolute;
+        right: 0;
+        top: 0;
+        max-width: 250px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .leftimage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: 250px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .bottomText {
+        position: relative;
+        max-width: 754px;
+        margin: 0 auto;
+
+        h3 {
+            color: #FFF;
+            text-align: center;
+            margin: 0 0 50px 0;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            @include font-bold;
+        }
+
+        .cardGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+
+            .items {
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.17);
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(5px);
+                padding: 24px 18px;
+                position: relative;
+                overflow: hidden;
+
+                &:last-child {
+                    button {
+                        background: #5B4E39;
+                    }
+                }
+
+                button {
+                    border: none;
+                    color: #EDEDED;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    @include font-bold;
+                    cursor: pointer;
+                    border-radius: 100px;
+                    background: #385159;
+                    padding: 10px 22px;
+                }
+
+                &::before {
+                    background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #04AAE3 100%);
+                    filter: blur(50px);
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: '';
+                }
+
+                &::after {
+                    background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #E38E04 100%);
+                    filter: blur(50px);
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    content: '';
+                }
+
+                p {
+                    color: #EDEDED;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 28px;
+                    @include font-medium;
+                    margin: 16px 0 0 0;
+                }
+            }
+        }
+
+    }
+
+    .text {
+        position: relative;
+
+        h2 {
+            color: #FFF;
+            text-align: center;
+            font-size: 46px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            @include font-semibold;
+            max-width: 575px;
+            margin: 0 auto 28px auto;
+        }
+
+        .buttonCenter {
+            display: flex;
+            justify-content: center;
+            padding: 0 0 40px 0;
+
+            button {
+                color: #FFF;
+                text-align: center;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                @include font-medium;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.17);
+                background: rgba(255, 255, 255, 0.05);
+                padding: 12px 18px;
+            }
+        }
+    }
+}

@@ -1,0 +1,309 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
+.helixOrchestrationLayer {
+    padding: 80px 0;
+    background: linear-gradient(180deg,
+            #FFFFFF 0%,
+            rgba(255, 255, 255, 0.82) 50%,
+            rgba(126, 198, 191, 0.3) 100%);
+
+    position: relative;
+
+
+    .grid {
+        display: grid;
+        grid-template-columns: 240px 1fr 321px;
+        gap: 0px;
+
+        .items {
+            position: relative;
+        }
+
+        .promptBoxRight {
+            max-width: 260px;
+            width: 260px;
+            border-radius: 14px;
+            box-shadow: 0 2.932px 12.753px 0 rgba(0, 0, 0, 0.08);
+            position: relative;
+            left: -40px;
+            top: -40px;
+
+            .body {
+                padding: 13px 12px;
+                border-radius: 0 0 14px 14px;
+                border: 0.733px solid rgba(0, 0, 0, 0.06);
+                background: #1E1E1E;
+
+                p {
+                    color: #fff;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 17.59px;
+                    @include font-medium;
+                }
+            }
+
+            .header {
+                border-radius: 14px 14px 0 0;
+                background: #F2F2F2;
+                padding: 14px 17px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span {
+                    display: block;
+                    color: #525252;
+                    font-size: 17.59px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 14.658px;
+                    text-transform: uppercase;
+                    @include font-bold;
+
+                }
+            }
+        }
+
+        .leftLineAnimation {
+            position: absolute;
+            top: 36%;
+            right: -40%;
+        }
+
+        .rightlineAnimation {
+            position: absolute;
+            top: 4%;
+            left: -23%;
+        }
+
+        .rightImage {
+            img {
+                width: 100%;
+                height: 420px;
+                display: block;
+                border-radius: 22px;
+            }
+        }
+
+        .bottomContentAlignment {
+            display: flex;
+            gap: 160px;
+            margin-left: 15%;
+
+            .textWhiteBox {
+                max-width: 164px;
+                padding: 0 0 33px 0;
+
+                h4 {
+                    color: #121212;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 14.579px;
+                    @include font-medium;
+                    margin: 0 0 8px 0;
+                }
+
+                .whiteBox {
+                    padding: 11px;
+                    border-radius: 10px;
+                    border: 0.607px solid rgba(0, 0, 0, 0.06);
+                    background: #FFF;
+                    box-shadow: 0 2.43px 17.819px 0 rgba(0, 0, 0, 0.12);
+
+                    p {
+                        color: #7B7B7B;
+                        font-size: 11.603px;
+                        font-style: normal;
+                        font-weight: 510;
+                        line-height: 14.579px;
+                        @include font-medium;
+                    }
+                }
+            }
+        }
+
+        .centerBoxDesign {
+            display: flex;
+            justify-content: center;
+            max-width: 394px;
+            gap: 50px;
+            margin-left: 34%;
+
+            .single:first-child {
+                padding: 20px 0 0 0;
+
+            }
+
+            .single {
+                .textWhiteBox:first-child {
+                    position: relative;
+                    left: 10px;
+                }
+
+                .textWhiteBox {
+                    max-width: 164px;
+                    padding: 0 0 33px 0;
+
+                    h4 {
+                        color: #121212;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 510;
+                        line-height: 14.579px;
+                        @include font-medium;
+                        margin: 0 0 8px 0;
+                    }
+
+                    .whiteBox {
+                        padding: 11px;
+                        border-radius: 10px;
+                        border: 0.607px solid rgba(0, 0, 0, 0.06);
+                        background: #FFF;
+                        box-shadow: 0 2.43px 17.819px 0 rgba(0, 0, 0, 0.12);
+
+                        p {
+                            color: #7B7B7B;
+                            font-size: 11.603px;
+                            font-style: normal;
+                            font-weight: 510;
+                            line-height: 14.579px;
+                            @include font-medium;
+                        }
+                    }
+                }
+            }
+        }
+
+        .promptBox {
+            max-width: 260px;
+            width: 260px;
+            position: absolute;
+            top: 0;
+            right: -80%;
+            border-radius: 14px;
+            border: 0.733px solid rgba(0, 0, 0, 0.06);
+            background: #F2F2F2;
+            box-shadow: 0 2.932px 21.5px 0 rgba(0, 0, 0, 0.12);
+
+            .body {
+                padding: 13px 12px;
+
+                p {
+                    color: #7E7E7E;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 17.59px;
+                    @include font-medium;
+                }
+            }
+
+            .header {
+                border-radius: 14px 14px 0 0;
+                background: #1E1E1E;
+                padding: 14px 17px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span {
+                    display: block;
+                    color: #ADADAD;
+                    font-size: 17.59px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 14.658px;
+                    text-transform: uppercase;
+                    @include font-bold;
+
+                }
+            }
+        }
+
+        .leftImage {
+            padding: 120px 0 0 0;
+
+            img {
+                width: 100%;
+                height: 340px;
+                border-radius: 22px;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+    .title {
+        padding: 0 0 30px 0;
+
+        h2 {
+            color: #121212;
+            @include font-semibold;
+            font-size: 46px;
+            margin: 0 0 18px 0;
+            font-style: normal;
+            font-weight: 600;
+            text-align: center;
+            line-height: normal;
+        }
+
+        p {
+            color: #7E7E7E;
+            text-align: center;
+            font-size: 20px;
+            margin: 0 auto;
+            font-style: normal;
+            font-weight: 510;
+            line-height: 28px;
+            max-width: 489px;
+            @include font-medium;
+        }
+    }
+
+
+
+    .contentAlignment {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .rightAlignmentText {
+            padding-right: 90px;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 77.143px;
+            font-style: normal;
+            background: linear-gradient(180deg, #FFF 0%, #C3E5E6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            line-height: normal;
+            @include font-semibold;
+        }
+    }
+
+    .imageAlignment {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        justify-content: center;
+
+        img {
+            display: block;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.items {
+    will-change: transform, opacity;
+}

@@ -1,0 +1,42 @@
+@use '../../scss/main.scss' as *;
+@use '../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../scss/font/font.scss' as *;
+
+.header {
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    z-index: 9;
+
+    .headerDesign {
+        padding: 16px 36px;
+        border-radius: 99px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .button {
+            button {
+                border-radius: 99px;
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 20px;
+                @include font-semibold;
+                background: linear-gradient(145deg, #313131 -7.15%, #181818 93.46%);
+                padding: 14px 22px;
+                cursor: pointer;
+                border: none;
+            }
+        }
+
+        .logo {
+            img {
+                display: block;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,145 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
+.herobanner {
+    background-image: url('/assets/images/hero-banner.png');
+    height: 100dvh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .heroContainer {
+        margin: 0 auto;
+        max-width: calc(1030px + 40px);
+        padding: 0 20px;
+    }
+
+    .topSpacingAlignmemnt {
+        padding: 170px 0 0 0;
+
+        .buttonCenter {
+            display: flex;
+            justify-content: center;
+
+            button {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                padding: 14px 22px;
+                border: none;
+                border-radius: 1000px;
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 20px;
+                @include font-semibold;
+                background: linear-gradient(145deg, #313131 -7.15%, #181818 93.46%);
+            }
+        }
+
+        .buttonAlignment {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            align-items: center;
+            padding: 0 0 40px 0;
+            flex-wrap: wrap;
+            max-width: 736px;
+            gap: 12px;
+
+            .iconText {
+                padding: 10px 18px;
+                border-radius: 100px;
+                background: #F3F3F3;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                span {
+                    color: rgba(18, 18, 18, 0.70);
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 590;
+                    line-height: normal;
+                    text-transform: uppercase;
+                    @include font-medium;
+                }
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    background: #121212;
+                }
+            }
+        }
+
+        .title {
+            padding: 0 0 24px 0;
+
+            span {
+                display: block;
+                color: #ADADAD;
+                font-size: 22px;
+                font-style: normal;
+                text-align: center;
+                font-weight: 700;
+                line-height: 20px;
+                text-transform: uppercase;
+                @include font-bold;
+            }
+
+            h1 {
+                @include font-semibold;
+                color: #121212;
+                text-align: center;
+                font-size: 72px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }
+    }
+
+    .botttomSection {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+
+        .bottomContainer {
+            max-width: calc(1040px + 20px);
+            margin: 0 auto;
+            padding: 0 20px;
+
+            p {
+                color: #ADADAD;
+                text-align: center;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 510;
+                margin: 0 0 32px 0;
+                line-height: normal;
+                @include font-medium;
+            }
+
+            .imageAlignment {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+
+                img {
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

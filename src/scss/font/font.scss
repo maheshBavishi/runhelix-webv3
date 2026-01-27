@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "SF-Pro-Text-Bold";
+    src: url("/assets/font/SF-Pro-Text-Bold.otf");
+}
+
+@font-face {
+    font-family: "SF-Pro-Text-Medium";
+    src: url("/assets/font/SF-Pro-Text-Medium.otf");
+}
+
+@font-face {
+    font-family: "SF-Pro-Text-Regular";
+    src: url("/assets/font/SF-Pro-Text-Regular.otf");
+}
+
+@font-face {
+    font-family: "SF-Pro-Text-Semibold";
+    src: url("/assets/font/SF-Pro-Text-Semibold.otf");
+}
+
+@mixin font-normal {
+    font-family: "SF-Pro-Text-Regular";
+}
+
+@mixin font-medium {
+    font-family: "SF-Pro-Text-Medium";
+}
+
+@mixin font-semibold {
+    font-family: "SF-Pro-Text-Semibold";
+}
+
+@mixin font-bold {
+    font-family: "SF-Pro-Text-Bold";
+}

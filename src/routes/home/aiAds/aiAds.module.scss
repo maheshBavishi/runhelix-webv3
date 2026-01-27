@@ -1,0 +1,106 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
+.aiAds {
+    padding: 100px 0;
+    background: #121212;
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 20px;
+        padding: 0 0 70px 0;
+        .socialIconAlignment {
+            p {
+                color: #ADADAD;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 16px;
+                @include font-bold;
+                text-transform: uppercase;
+
+            }
+
+            .imageAlignment {
+                display: flex;
+                align-items: center;
+                padding: 0 0 16px 0;
+
+                img:first-child {
+                    margin-left: 0;
+                }
+
+                img {
+                    margin-left: -18px;
+                    display: block;
+                }
+            }
+        }
+
+        .griditems:first-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .text {
+            h2 {
+                color: #FFF;
+                font-size: 46px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                max-width: 575px;
+                @include font-semibold;
+                margin: 0 0 18px 0;
+            }
+
+            .allIconText {
+                .iconText {
+                    display: grid;
+                    grid-template-columns: 29px 1fr;
+                    gap: 8px;
+                    align-items: center;
+                    padding: 0 0 12px 0;
+
+                    &:last-child {
+                        padding: 0;
+                    }
+
+                    img {
+                        max-width: 29px;
+                        height: auto;
+                        display: block;
+                    }
+
+                    p {
+                        color: #B6B6B6;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 36px;
+                        @include font-medium;
+                    }
+                }
+            }
+        }
+
+        .cardBox {
+            width: 100%;
+            background: #282828;
+            padding: 12px;
+            border-radius: 24px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                border-radius: 24px;
+                object-fit: cover;
+            }
+        }
+    }
+}
