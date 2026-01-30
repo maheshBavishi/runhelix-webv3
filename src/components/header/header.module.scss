@@ -9,6 +9,26 @@
     left: 0;
     z-index: 9;
 
+    &.hide {
+        transform: translateY(-100%);
+        transition: .3s ease-in-out;
+    }
+
+    &.show {
+        transform: translateY(0%);
+        position: fixed;
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+        top: 30px;
+        left: 0;
+
+        .headerDesign {
+            backdrop-filter: blur(38.400001525878906px);
+            background: #F4F4F4;
+
+        }
+    }
+
     .headerDesign {
         padding: 16px 36px;
         border-radius: 99px;
