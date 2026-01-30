@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScroll>
+        {/* <SmoothScroll> */}
           <Header />
           {children}
           <Footer />
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
       </body>
     </html>
   );
