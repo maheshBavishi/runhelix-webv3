@@ -2,15 +2,17 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './multiPlatformDigital.module.scss';
+const Video4 = '/assets/video/video4.mp4';
+
 const videoList = [
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/07f862ee-f49a-43dd-8499-ca2663cb4488.mp4',
+    Video4,
+    Video4,
+    Video4,
+    Video4,
+    Video4,
+    Video4,
+    Video4,
+    Video4,
 ];
 export default function MultiPlatformDigital() {
     const videoRefs = useRef([]);

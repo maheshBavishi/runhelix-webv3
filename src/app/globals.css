@@ -43,3 +43,21 @@ p:last-child {
   padding: 0 20px;
   margin: 0 auto;
 }
+
+.container-xs {
+  max-width: calc(1254px + 40px);
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.container-xs3 {
+  max-width: calc(1230px + 40px);
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.container-xs2 {
+  max-width: calc(1290px + 40px);
+  padding: 0 20px;
+  margin: 0 auto;
+}

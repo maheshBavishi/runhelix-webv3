@@ -2,15 +2,16 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
+const Video3 = '/assets/video/video3.mp4';
 const videoList = [
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
-    'http://kblkgatxovviyqgonsbq.supabase.co/storage/v1/object/public/my-videos/9a65b325-ce71-43eb-b9ad-f114f80debda.mp4',
+    Video3,
+    Video3,
+    Video3,
+    Video3,
+    Video3,
+    Video3,
+    Video3,
+    Video3,
 ];
 
 export default function ProductPhotoshoots() {

@@ -2,16 +2,16 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './multiPlatform.module.scss';
-
+const Video = '/assets/video/video.mp4';
 const videoList = [
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/90adfdb5-c25a-41c4-ab3c-f8f8057c8b43.mp4',
+    Video,
+    Video,
+    Video,
+    Video,
+    Video,
+    Video,
+    Video,
+    Video,
 ];
 
 export default function MultiPlatform() {

@@ -121,7 +121,7 @@ export default function Herobanner() {
             initial="hidden"
             animate="visible"
           >
-            {[SoraIcon, LlevenlabsIcon, LlevenlabsIcon, VeoIcon, KlingIcon, WanIcon, RunwayIcon].map(
+            {[SoraIcon, LlevenlabsIcon, VeoIcon, KlingIcon, WanIcon, RunwayIcon].map(
               (icon, i) => (
                 <motion.img
                   key={i}
