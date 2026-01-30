@@ -7,7 +7,7 @@ import BeautyIcon from '@/icons/beautyIcon'
 
 // Images for each category
 const imagesMap = {
-    'Beauty & Skincare': '/assets/images/skincare.jpg',
+    'Beauty & Skincare': '/assets/images/Skincare.jpg',
     'Fashion Apparel & Accessories': '/assets/images/Fashion.jpg',
     'Health & Wellness Tech': '/assets/images/health.jpg',
     'Food, Beverage & Supplements': '/assets/images/food.jpg',
