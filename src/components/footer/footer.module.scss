@@ -14,15 +14,14 @@
         bottom: 0;
         background-size: cover;
         left: 0;
-        height: 420px;
+        height: 100%;
+
         background-repeat: no-repeat;
         animation: bg-change 3s infinite;
         background-position: center center;
     }
 
     .footerText {
-        position: relative;
-        z-index: 9;
         padding: 60px 0 0 0;
 
         h4 {
@@ -50,13 +49,13 @@
         }
 
         75% {
-            background-image: url('/assets/images/footer-layer2.png');
+            background-image: url('/assets/images/footer-layer1.png');
             transition: .3s ease-in-out;
 
         }
 
         100% {
-            background-image: url('/assets/images/footer-layer1.png');
+            background-image: url('/assets/images/footer-layer2.png');
             transition: .3s ease-in-out;
 
         }
@@ -74,6 +73,8 @@
         justify-content: flex-end;
         gap: 24px;
         padding: 24px 0 0 0;
+        position: relative;
+        z-index: 9;
 
         a {
             display: block;
@@ -92,6 +93,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 0 27px 0;
+        position: relative;
+        z-index: 9;
 
         .socialIcon {
             display: flex;

@@ -40,7 +40,7 @@ export default function Footer() {
           </h4>
         </div>
       </div>
-      {/* <div className={styles.bgbottom}></div> */}
+      <div className={styles.bgbottom}></div>
     </footer>
   )
 }
