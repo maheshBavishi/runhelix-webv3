@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
+import LazyVideo from '../../../components/LazyVideo';
 const Video3 = '/assets/video/video3.mp4';
 const videoList = [
     Video3,
@@ -43,13 +44,12 @@ export default function ProductPhotoshoots() {
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                         >
-                            <video
+                            <LazyVideo
                                 ref={(el) => (videoRefs.current[index] = el)}
                                 muted
                                 loop
                                 playsInline
                                 src={src}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </motion.div>
                     ))}

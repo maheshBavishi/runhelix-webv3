@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './promotionalVideos.module.scss';
+import LazyVideo from '../../../components/LazyVideo';
 const SkinImage = '/assets/images/skin-img.png';
 const SkinImage2 = '/assets/images/skin-sec.png';
 const Video = '/assets/video/video2.mp4';
@@ -43,13 +44,12 @@ export default function PromotionalVideos() {
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                         >
-                            <video
+                            <LazyVideo
                                 ref={(el) => (videoRefs.current[index] = el)}
                                 muted
                                 loop
                                 playsInline
                                 src={src}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </motion.div>
                     ))}

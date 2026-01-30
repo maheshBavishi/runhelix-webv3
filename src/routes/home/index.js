@@ -17,10 +17,20 @@ export default function HomePage() {
       <Herobanner />
       <AiAds />
       <HelixOrchestrationLayer />
-      <MultiPlatform />
-      <PromotionalVideos />
-      <ProductPhotoshoots />
-      <MultiPlatformDigital />
+      {/* video */}
+      <>
+        <MultiPlatform />
+      </>
+      <>
+        <PromotionalVideos />
+      </>
+      <>
+        <ProductPhotoshoots />
+      </>
+      <>
+        <MultiPlatformDigital />
+      </>
+      {/* video */}
       <InductriesServiced />
       <MarketingSection />
       <CreateProduct />

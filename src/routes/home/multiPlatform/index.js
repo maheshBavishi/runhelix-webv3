@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './multiPlatform.module.scss';
+import LazyVideo from '../../../components/LazyVideo';
 const Video = '/assets/video/video.mp4';
 const videoList = [
     Video,
@@ -43,13 +44,12 @@ export default function MultiPlatform() {
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                         >
-                            <video
+                            <LazyVideo
                                 ref={(el) => (videoRefs.current[index] = el)}
                                 muted
                                 loop
                                 playsInline
                                 src={src}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         </motion.div>
                     ))}
