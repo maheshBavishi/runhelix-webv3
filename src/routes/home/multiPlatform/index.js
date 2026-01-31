@@ -5,11 +5,11 @@ import styles from "./multiPlatform.module.scss";
 import LazyVideo from "../../../components/LazyVideo";
 const Video = "/assets/video/video.mp4";
 const videoList = [
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8495c879-2a08-4248-87e1-6a11f3060567.mp4",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/3121bffa-fb1c-4e75-8a43-a61d4a3f4833.mp4",
     Video,
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/e6056221-6367-45c4-bb4a-94b14228ceea.mp4",
     Video,
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/582cf7fc-0da4-42e2-8e75-113d42de9506.mp4",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/cff2cd03-ab73-45ad-b875-0494273513f2.mp4",
     Video,
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/acdb5051-9f58-4b2a-a7c4-4e39f6028965.mp4",
     Video,

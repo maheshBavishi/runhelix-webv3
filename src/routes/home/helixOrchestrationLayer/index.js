@@ -14,6 +14,7 @@ import LeftLineAnimation from '@/components/leftLineAnimation'
 import PlayBlackIcon from '@/icons/playBlackIcon'
 import RightLineAnimation from '@/components/rightLineAnimation'
 import classNames from 'classnames'
+import AgentLine from '../agentline'
 
 const LeftImage = '/assets/images/left-image.png'
 const RightImage = '/assets/images/right-img.png'
@@ -148,6 +149,9 @@ export default function HelixOrchestrationLayer() {
                                 transformPerspective: 1600,
                             }}
                         >
+                            <div className={styles.agentLine}>
+                                <AgentLine progress={lineProgress} />
+                            </div>
                             <div className={styles.centerBoxDesign}>
                                 <div className={styles.single}>
                                     <Agent style={agent1} title="Script Agent" desc='Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven.' />
