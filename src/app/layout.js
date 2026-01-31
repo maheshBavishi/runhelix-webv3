@@ -2,7 +2,6 @@ import Header from "@/components/header";
 import "./globals.css";
 import Footer from "@/components/footer";
 import '../scss/main.scss';
-import SmoothScroll from "@/components/SmoothScroll";
 import { preload } from 'react-dom';
 
 export const metadata = {

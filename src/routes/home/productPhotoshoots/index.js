@@ -43,6 +43,8 @@ export default function ProductPhotoshoots() {
                         >
 
                             <video
+                                playsInline
+                                preload="none"
                                 src={src}
                                 autoPlay
                                 loop

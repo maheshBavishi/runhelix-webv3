@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './promotionalVideos.module.scss';
-import LazyVideo from '../../../components/LazyVideo';
 const SkinImage = '/assets/images/skin-img.png';
 const SkinImage2 = '/assets/images/skin-sec.png';
 const Video = '/assets/video/video2.mp4';
@@ -43,6 +42,8 @@ export default function PromotionalVideos() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <video
+                                playsInline
+                                preload="none"
                                 src={src}
                                 autoPlay
                                 loop

@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './multiPlatformDigital.module.scss';
-import LazyVideo from '../../../components/LazyVideo';
 const Video4 = '/assets/video/video4.mp4';
 
 const videoList = [
@@ -31,6 +30,8 @@ export default function MultiPlatformDigital() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <video
+                                playsInline
+                                preload="none"
                                 src={src}
                                 autoPlay
                                 loop

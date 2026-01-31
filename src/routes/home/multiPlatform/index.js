@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import styles from "./multiPlatform.module.scss";
-import LazyVideo from "../../../components/LazyVideo";
 const Video = "/assets/video/video.mp4";
 const videoList = [
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/3121bffa-fb1c-4e75-8a43-a61d4a3f4833.mp4",
@@ -40,6 +39,8 @@ export default function MultiPlatform() {
                             autoPlay
                             loop
                             muted
+                            playsInline
+                            preload="none"
                             style={{
                                 width: "100%",
                                 height: "100%",
