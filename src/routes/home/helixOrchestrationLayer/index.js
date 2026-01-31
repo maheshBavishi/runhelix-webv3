@@ -5,16 +5,17 @@ import {
     useScroll,
     useTransform,
     useSpring,
+    useMotionValueEvent,
 } from 'framer-motion'
 
 import styles from './helixOrchestrationLayer.module.scss'
-
 import ImageIcon from '@/icons/imageIcon'
 import LeftLineAnimation from '@/components/leftLineAnimation'
 import PlayBlackIcon from '@/icons/playBlackIcon'
 import RightLineAnimation from '@/components/rightLineAnimation'
 import classNames from 'classnames'
 import AgentLine from '../agentline'
+import AnimatedLine from '../agentline'
 
 const LeftImage = '/assets/images/left-image.png'
 const RightImage = '/assets/images/right-img.png'
@@ -28,17 +29,21 @@ const RunwayIcon = '/assets/icons/runway.svg'
 
 export default function HelixOrchestrationLayer() {
     const containerRef = useRef(null)
+    const switchRef = useRef(null)
 
-    /* ---------------- SCROLL SETUP ---------------- */
+    /* ---------------- SCROLL ---------------- */
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ['start start', 'end end'],
     })
 
-    /* ---------------- SECTION FADE ---------------- */
+    /* ---------------- SECTION ---------------- */
     const sectionOpacity = useTransform(scrollYProgress, [0, 0.09], [0, 1])
 
-    /* ---------------- LEFT (PROMPT) ---------------- */
+    /* ---------------- SYNCHRONIZED SCROLL PROGRESS ---------------- */
+    const activeProgress = useSpring(scrollYProgress, { stiffness: 90, damping: 22 })
+
+    /* ---------------- LEFT ---------------- */
     const leftX = useSpring(
         useTransform(scrollYProgress, [0.15, 0.35], [-180, 0]),
         { stiffness: 90, damping: 22 }
@@ -49,7 +54,7 @@ export default function HelixOrchestrationLayer() {
     )
     const leftOpacity = useTransform(scrollYProgress, [0.15, 0.25], [0, 1])
 
-    /* ---------------- RIGHT (OUTPUT) ---------------- */
+    /* ---------------- RIGHT ---------------- */
     const rightX = useSpring(
         useTransform(scrollYProgress, [0.75, 0.95], [180, 0]),
         { stiffness: 90, damping: 22 }
@@ -60,7 +65,7 @@ export default function HelixOrchestrationLayer() {
     )
     const rightOpacity = useTransform(scrollYProgress, [0.75, 0.85], [0, 1])
 
-    /* ---------------- CENTER BASE ---------------- */
+    /* ---------------- CENTER ---------------- */
     const centerScale = useSpring(
         useTransform(scrollYProgress, [0.3, 0.6], [0.9, 1]),
         { stiffness: 110, damping: 26 }
@@ -70,20 +75,27 @@ export default function HelixOrchestrationLayer() {
         { stiffness: 110, damping: 26 }
     )
 
-    /* ---------------- AGENT STEP REVEALS ---------------- */
-    const agent1 = useTransform(scrollYProgress, [0.35, 0.4], [0, 1])
-    const agent2 = useTransform(scrollYProgress, [0.4, 0.45], [0, 1])
-    const agent3 = useTransform(scrollYProgress, [0.45, 0.5], [0, 1])
-    const agent4 = useTransform(scrollYProgress, [0.5, 0.55], [0, 1])
-    const agent5 = useTransform(scrollYProgress, [0.55, 0.6], [0, 1])
-    const agent6 = useTransform(scrollYProgress, [0.6, 0.65], [0, 1])
+    /* ---------------- AGENT REVEAL (SCROLL BASED) ---------------- */
+    const agent1 = useTransform(activeProgress, [0.34, 0.38], [0, 1])
+    const agent2 = useTransform(activeProgress, [0.38, 0.42], [0, 1])
+    const agent3 = useTransform(activeProgress, [0.42, 0.46], [0, 1])
+    const agent4 = useTransform(activeProgress, [0.46, 0.50], [0, 1])
+    const agent5 = useTransform(activeProgress, [0.50, 0.54], [0, 1])
+    const agent6 = useTransform(activeProgress, [0.54, 0.58], [0, 1])
 
-    /* ---------------- LINE FLOW ---------------- */
-    const lineProgress = useTransform(scrollYProgress, [0.6, 0.8], [0, 1])
+    /* ---------------- SWITCH AUTO ON AFTER 4TH CARD ---------------- */
+
+    useMotionValueEvent(activeProgress, 'change', (v) => {
+        if (switchRef.current) {
+            switchRef.current.checked = v > 0.50
+        }
+    })
+
+    /* ---------------- LINE PROGRESS ---------------- */
+    const lineProgress = useTransform(activeProgress, [0.34, 0.58], [0, 1])
 
     return (
         <div ref={containerRef} className={styles.helixOrchestrationLayer}>
-            {/* STICKY WRAP */}
             <motion.div
                 className={styles.stickyWrap}
                 style={{ opacity: sectionOpacity }}
@@ -101,8 +113,8 @@ export default function HelixOrchestrationLayer() {
                     <div className={styles.contentAlignment}>
                         <h4>From Prompt</h4>
                         <label className={styles.switch}>
-                            <input type="checkbox" />
-                            <span className={classNames(styles.slider, styles.round)}></span>
+                            <input ref={switchRef} type="checkbox" />
+                            <span className={classNames(styles.slider, styles.round)} />
                         </label>
                         <h4 className={styles.rightAlignmentText}>To Output</h4>
                     </div>
@@ -130,11 +142,11 @@ export default function HelixOrchestrationLayer() {
                                 </div>
                                 <div className={styles.body}>
                                     <p>
-                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.The section should have a dark, modern background with a subtle gradient and soft
-                                        shadows. At the top center, place a bold headline that reads
+                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.
                                     </p>
                                 </div>
                             </div>
+
                             <div className={styles.leftLineAnimation}>
                                 <LeftLineAnimation progress={lineProgress} />
                             </div>
@@ -150,23 +162,24 @@ export default function HelixOrchestrationLayer() {
                             }}
                         >
                             <div className={styles.agentLine}>
-                                <AgentLine progress={lineProgress} />
+                                <AnimatedLine progress={lineProgress} />
                             </div>
+
                             <div className={styles.centerBoxDesign}>
                                 <div className={styles.single}>
-                                    <Agent style={agent1} title="Script Agent" desc='Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven.' />
-                                    <Agent style={agent2} title="QA Agent" desc='Performs quality and compliance checks across brand, visuals, audio, and timing. Identifies issues early to ensure a polished final output.' />
+                                    <Agent style={agent1} title="Script Agent" desc="Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven." />
+                                    <Agent style={agent2} title="QA Agent" desc="Performs quality and compliance checks across brand, visuals, audio, and timing. Identifies issues early to ensure a polished final output." />
                                 </div>
 
                                 <div className={styles.single}>
-                                    <Agent style={agent3} title="Visual Director Agent" desc='Defines visual style, creative direction, and motion flow. Ensures consistency in pacing, transitions, and overall visual experience.' />
-                                    <Agent style={agent4} title="Generation Agent" desc='Transforms scripts and creative directions into final media assets. Focuses on consistency, efficiency, and performance-ready execution.' />
+                                    <Agent style={agent3} title="Visual Director Agent" desc="Defines visual style, creative direction, and motion flow. Ensures consistency in pacing, transitions, and overall visual experience." />
+                                    <Agent style={agent4} title="Generation Agent" desc="Transforms scripts and creative directions into final media assets. Focuses on consistency, efficiency, and performance-ready execution." />
                                 </div>
                             </div>
 
                             <div className={styles.bottomContentAlignment}>
-                                <Agent style={agent5} title="Concept Agent" desc='Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning.' />
-                                <Agent style={agent6} title="Performance Agent" desc='Analyzes engagement and performance data to identify what works best. Uses insights to continuously optimize future content and conversions.' />
+                                <Agent style={agent5} title="Concept Agent" desc="Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning." />
+                                <Agent style={agent6} title="Performance Agent" desc="Analyzes engagement and performance data to identify what works best. Uses insights to continuously optimize future content and conversions." />
                             </div>
                         </motion.div>
 
@@ -183,6 +196,7 @@ export default function HelixOrchestrationLayer() {
                             <div className={styles.rightlineAnimation}>
                                 <RightLineAnimation progress={lineProgress} />
                             </div>
+
                             <div className={styles.rightImage}>
                                 <img src={RightImage} alt="RightImage" />
                             </div>
@@ -194,15 +208,14 @@ export default function HelixOrchestrationLayer() {
                                 </div>
                                 <div className={styles.body}>
                                     <p>
-                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.The section should have a dark, modern background with a subtle gradient and soft shadows. At the top center, place a bold headline that reads
+                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.The section should have a dark, modern background with a subtle gradient and soft
+                                        shadows. At the top center, place a bold headline that reads
                                     </p>
                                 </div>
                             </div>
                         </motion.div>
-
                     </div>
 
-                    {/* ICONS */}
                     <div className={styles.imageAlignment}>
                         {[SoraIcon, LlevenlabsIcon, VeoIcon, KlingIcon, WanIcon, RunwayIcon].map(
                             (icon, i) => (
@@ -217,7 +230,7 @@ export default function HelixOrchestrationLayer() {
     )
 }
 
-/* ---------------- AGENT COMPONENT ---------------- */
+/* ---------------- AGENT ---------------- */
 function Agent({ title, desc, style }) {
     return (
         <motion.div
@@ -229,9 +242,7 @@ function Agent({ title, desc, style }) {
         >
             <h4>{title}</h4>
             <div className={styles.whiteBox}>
-                <p>
-                    {desc}
-                </p>
+                <p>{desc}</p>
             </div>
         </motion.div>
     )
