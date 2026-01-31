@@ -41,6 +41,7 @@ export default function ProductPhotoshoots() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
+
                             <video
                                 src={src}
                                 autoPlay
