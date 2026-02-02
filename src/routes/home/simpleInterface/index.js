@@ -90,7 +90,7 @@ export default function SimpleInterface() {
                     </motion.div>
 
                     <motion.div className={styles.items} variants={fadeUp3D}>
-                        <button>Done For You</button>
+                        <button>Done With You</button>
                         <p>
                             You pick the model, then prompt
                             while Helix’s Orchestration Layer
