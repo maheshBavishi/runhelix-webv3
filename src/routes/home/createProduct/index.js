@@ -5,11 +5,10 @@ import classNames from "classnames";
 import styles from './createProduct.module.scss';
 import RightArrow from '@/icons/rightArrow';
 import PlusIcon from '@/icons/plusIcon';
-import MediaIcon from '@/icons/mediaIcon';
-import MicIcon from '@/icons/micIcon';
 import PlayWhiteIcon from '@/icons/playWhiteIcon';
 
 const PosterImage = '/assets/images/poster.png';
+const AnimationVide = "/assets/images/logo-animation.webm";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -29,6 +28,8 @@ export default function CreateProduct() {
     const subscriptionRef = useRef(null);
     const [videoKey, setVideoKey] = useState(0);
     const fileInputRef = useRef(null);
+    const [showDownloadModal, setShowDownloadModal] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
 
     // Force video reload on visibility change
     useEffect(() => {
@@ -280,8 +281,60 @@ export default function CreateProduct() {
         fileInputRef.current?.click();
     };
 
+    const handleDownloadClick = () => {
+        setShowDownloadModal(true);
+    };
+
+    const confirmDownload = () => {
+        const session_id = getSessionId();
+        window.location.href = `https://platform.runhelix.ai/auth?session_id=${session_id}`;
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        setIsDragging(true);
+    };
+
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        setIsDragging(false);
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        setIsDragging(false);
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            const file = e.dataTransfer.files[0];
+            // Check if file is an image
+            if (file.type.startsWith('image/')) {
+                setSelectedFile(file);
+                setPreview(URL.createObjectURL(file));
+                setErrorMessage("");
+            } else {
+                setErrorMessage("Please upload an image file.");
+            }
+        }
+    };
+
     return (
         <div className={styles.createProductAlignment}>
+            {showDownloadModal && (
+                <div className={styles.modalBackdrop} onClick={() => setShowDownloadModal(false)}>
+                    <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                        <button
+                            className={styles.closeButton}
+                            onClick={() => setShowDownloadModal(false)}
+                        >
+                            ×
+                        </button>
+                        <h3>We hope you love your {generatedMediaType === 'image' ? 'Image' : 'Video'}</h3>
+                        <p>To download, please create an account.</p>
+                        <button className={styles.modalButton} onClick={confirmDownload}>
+                            Create Account
+                        </button>
+                    </div>
+                </div>
+            )}
             <div className='container-xs2'>
                 <div className={styles.title}>
                     <h2>Create Your First Product Video or Image</h2>
@@ -303,17 +356,59 @@ export default function CreateProduct() {
                             
                             <div className={styles.videobox} style={{ minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                 {isGenerating ? (
-                                    <div style={{ textAlign: 'center', color: 'white' }}>
-                                        <div style={{ marginBottom: '20px', fontSize: '24px' }}>✨</div>
-                                        <p style={{ fontSize: '14px', fontWeight: '500', marginBottom: '8px' }}>
+                                    <div style={{ height: '100%', minHeight: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#111', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
+                                        <video
+                                            src={AnimationVide}
+                                            loop
+                                            autoPlay
+                                            muted
+                                            playsInline
+                                            className="mt-6"
+                                        />
+                                        <p style={{ color: 'white', fontSize: '14px', fontWeight: '500', marginBottom: '8px' }}>
                                             {loadingMessages[currentMessage]}
                                         </p>
-                                        <p style={{ color: '#ffffff70', fontSize: '12px' }}>
-                                            Helix is running. This may take a few minutes.
+                                        <p style={{ color: '#ffffff70', fontSize: '12px', fontWeight: '500', marginBottom: '8px' }}>
+                                            Helix is now running . <br/> Videos can take up to 7 minutes to generate. <br/> Please enjoy a snack.
                                         </p>
                                     </div>
                                 ) : generatedVideoUrl ? (
                                     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                        <button
+                                            onClick={handleDownloadClick}
+                                            style={{
+                                                position: 'absolute',
+                                                top: '12px',
+                                                right: '12px',
+                                                zIndex: 10,
+                                                background: 'rgba(0, 0, 0, 0.6)',
+                                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                                borderRadius: '8px',
+                                                width: '36px',
+                                                height: '36px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                cursor: 'pointer',
+                                                backdropFilter: 'blur(4px)',
+                                                transition: 'all 0.2s ease'
+                                            }}
+                                            title="Download & Save"
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)';
+                                                e.currentTarget.style.transform = 'scale(1.05)';
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.6)';
+                                                e.currentTarget.style.transform = 'scale(1)';
+                                            }}
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
                                         {generatedMediaType === 'image' ? (
                                             <img src={generatedVideoUrl} alt="Generated" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
                                         ) : (
@@ -357,7 +452,17 @@ export default function CreateProduct() {
                                 </div>
                             </div>
 
-                            <div className={styles.messageBox}>
+                            <div 
+                                className={styles.messageBox}
+                                onDragOver={handleDragOver}
+                                onDragLeave={handleDragLeave}
+                                onDrop={handleDrop}
+                                style={{
+                                    border: isDragging ? '2px dashed #29A6B4' : '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: isDragging ? 'rgba(41, 166, 180, 0.1)' : 'rgba(18, 18, 18, 0.40)',
+                                    transition: 'all 0.2s ease'
+                                }}
+                            >
                                 {preview && (
                                     <div style={{ padding: '0 16px', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                         <img src={preview} alt="Preview" style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} />
@@ -365,7 +470,7 @@ export default function CreateProduct() {
                                     </div>
                                 )}
                                 <textarea 
-                                    placeholder='Message AI Chat....'
+                                    placeholder='Simply enter your prompt and media here to create your first video'
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 ></textarea>
@@ -385,15 +490,8 @@ export default function CreateProduct() {
                                             <PlusIcon />
                                             Media
                                         </button>
-                                        <button>
-                                            <MediaIcon />
-                                            Attach
-                                        </button>
                                     </div>
                                     <div className={styles.rightAlignment}>
-                                        <div className={styles.voice}>
-                                            <MicIcon />
-                                        </div>
                                         <button 
                                             onClick={handleRunHelix} 
                                             disabled={isGenerating}
