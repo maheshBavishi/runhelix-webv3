@@ -35,6 +35,7 @@ export default function ProductPhotoshoots() {
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (
                         <motion.div
+
                             key={index}
                             className={styles.items}
                             initial={{ opacity: 0, y: 50 }}
