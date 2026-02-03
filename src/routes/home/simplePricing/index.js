@@ -176,24 +176,16 @@ export default function SimplePricing() {
                   </div>
 
                   <div className={styles.lastBox}>
-                    <div className={styles.cardheader} style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      width: '100%',
-                      marginBottom: '12px',
-                      borderBottom: '1px solid #E5E7EB',
-                      paddingBottom: '12px'
-                    }}>
-                      <span style={{ fontSize: '14px', color: '#6B7280', fontWeight: '500' }}>
+                    <div className={styles.cardheader} >
+                      <h4>
                         Monthly Savings
-                      </span>
+                      </h4>
                       <h5 style={{ fontSize: '16px', fontWeight: '700', }}>
                         {meta.savingsAmount} <sub style={{ fontSize: '12px', fontWeight: '400', bottom: '0' }}>/ month</sub>
                       </h5>
                     </div>
                     <div style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '4px' }}>
-                      <p style={{ fontWeight: '700', }}>Traditional Cost:</p> {meta.traditionalCostText}
+                      <p style={{ fontWeight: '700', }}>Traditional Cost: {meta.traditionalCostText} </p>
                     </div>
                     <span style={{ fontSize: '12px', display: 'block' }}>
                       {meta.traditionalCostSub}
