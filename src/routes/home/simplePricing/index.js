@@ -29,7 +29,7 @@ const PLAN_METADATA = {
     traditionalCostSub: 'Paid to affiliates & creators'
   },
   'scale': {
-    icon: ScaleIcon,
+    icon: StartIcon,
     description: 'Perfect for Small Teams and Startups',
     features: [
       'up to 150 videos/month (12 second video)',
