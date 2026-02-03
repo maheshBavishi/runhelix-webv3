@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './aiAds.module.scss';
 import Image from 'next/image';
 import SimpleInterface from '../simpleInterface';
 
-const AiAdsImage = '/assets/images/ai-ads.png';
+const AiAdsImage = '/assets/images/left-image.png';
+const AiAdsVideo = '/assets/video/video2.mp4';
 const HelixIcon = '/assets/icons/helix.svg';
 const TilktokIcon = '/assets/icons/tilktok.svg';
 const InstagramIcon = '/assets/icons/instagram.svg';
@@ -41,6 +42,46 @@ const stagger = {
 };
 
 export default function AiAds() {
+    const [sliderPosition, setSliderPosition] = useState(50);
+    const [isDragging, setIsDragging] = useState(false);
+    const containerRef = useRef(null);
+
+    const handleMove = (event) => {
+        if (!isDragging && event.type !== 'mousemove' && event.type !== 'touchmove') return;
+        if (isDragging || event.type === 'mousemove' || event.type === 'touchmove') {
+            const container = containerRef.current;
+            if (!container) return;
+
+            const rect = container.getBoundingClientRect();
+            const x = (event.pageX || event.touches?.[0]?.pageX) - rect.left;
+            const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            setSliderPosition(position);
+        }
+    };
+
+    const handleMouseDown = () => setIsDragging(true);
+    const handleMouseUp = () => setIsDragging(false);
+
+    useEffect(() => {
+        if (isDragging) {
+            window.addEventListener('mousemove', handleMove);
+            window.addEventListener('mouseup', handleMouseUp);
+            window.addEventListener('touchmove', handleMove);
+            window.addEventListener('touchend', handleMouseUp);
+        } else {
+            window.removeEventListener('mousemove', handleMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+            window.removeEventListener('touchmove', handleMove);
+            window.removeEventListener('touchend', handleMouseUp);
+        }
+        return () => {
+            window.removeEventListener('mousemove', handleMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+            window.removeEventListener('touchmove', handleMove);
+            window.removeEventListener('touchend', handleMouseUp);
+        };
+    }, [isDragging]);
+
     return (
         <div className={styles.aiAds}>
             <div className="container">
@@ -131,7 +172,7 @@ export default function AiAds() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right image */}
+                    {/* Right image/video comparison */}
                     <motion.div
                         className={styles.griditems}
                         variants={fadeRight}
@@ -141,7 +182,38 @@ export default function AiAds() {
                         transition={{ duration: 0.7, ease: 'easeOut' }}
                     >
                         <div className={styles.cardBox}>
-                            <img src={AiAdsImage} alt="AiAdsImage" />
+                            <div
+                                className={styles.compareContainer}
+                                ref={containerRef}
+                                onMouseDown={handleMouseDown}
+                                onTouchStart={handleMouseDown}
+                            // onMouseMove={(e) => !isDragging && handleMove(e)}
+                            >
+                                {/* Left Side: Image */}
+                                <div className={styles.leftImage}>
+                                    <img src={AiAdsImage} alt="Before AI" />
+                                </div>
+
+                                {/* Right Side: Video clipped by slider position */}
+                                <div
+                                    className={styles.rightVideo}
+                                    style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
+                                >
+                                    <video
+                                        src={AiAdsVideo}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                </div>
+
+                                {/* Slider Handle */}
+                                <div
+                                    className={styles.handle}
+                                    style={{ left: `${sliderPosition}%` }}
+                                />
+                            </div>
                         </div>
                     </motion.div>
 
