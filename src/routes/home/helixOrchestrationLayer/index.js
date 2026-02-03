@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import {
     motion,
     useScroll,
@@ -30,6 +30,7 @@ const RunwayIcon = '/assets/icons/runway.svg'
 export default function HelixOrchestrationLayer() {
     const containerRef = useRef(null)
     const switchRef = useRef(null)
+    const [isSwitchActive, setIsSwitchActive] = useState(false)
 
     /* ---------------- SCROLL ---------------- */
     const { scrollYProgress } = useScroll({
@@ -86,8 +87,10 @@ export default function HelixOrchestrationLayer() {
     /* ---------------- SWITCH AUTO ON AFTER 4TH CARD ---------------- */
 
     useMotionValueEvent(activeProgress, 'change', (v) => {
+        const isActive = v > 0.50
+        setIsSwitchActive(isActive)
         if (switchRef.current) {
-            switchRef.current.checked = v > 0.50
+            switchRef.current.checked = isActive
         }
     })
 
@@ -111,12 +114,12 @@ export default function HelixOrchestrationLayer() {
                     </motion.div>
 
                     <div className={styles.contentAlignment}>
-                        <h4>From Prompt</h4>
+                        <h4 className={classNames(!isSwitchActive && styles.darktext)}>From Prompt</h4>
                         <label className={styles.switch}>
-                            <input ref={switchRef} type="checkbox" />
+                            <input ref={switchRef} type="checkbox" checked={isSwitchActive} readOnly />
                             <span className={classNames(styles.slider, styles.round)} />
                         </label>
-                        <h4 className={styles.rightAlignmentText}>To Output</h4>
+                        <h4 className={classNames(styles.rightAlignmentText, isSwitchActive && styles.darktext)}>To Output</h4>
                     </div>
 
                     <div className={styles.grid}>

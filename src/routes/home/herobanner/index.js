@@ -95,10 +95,12 @@ export default function Herobanner() {
             animate="visible"
             transition={{ delay: 0.6, duration: 0.4, ease: 'easeOut' }}
           >
-            <button>
-              <PlayIcon />
-              Create Your First Video
-            </button>
+            <a href='#create-first-video'>
+              <button>
+                <PlayIcon />
+                Create Your First Video
+              </button>
+            </a>
           </motion.div>
         </div>
       </div>

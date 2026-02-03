@@ -317,7 +317,7 @@ export default function CreateProduct() {
     };
 
     return (
-        <div className={styles.createProductAlignment}>
+        <div className={styles.createProductAlignment} id="create-first-video">
             {showDownloadModal && (
                 <div className={styles.modalBackdrop} onClick={() => setShowDownloadModal(false)}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>

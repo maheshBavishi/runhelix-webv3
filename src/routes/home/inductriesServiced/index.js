@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './inductriesServiced.module.scss'
 import BeautyIcon from '@/icons/beautyIcon'
@@ -52,28 +52,41 @@ const rightItems = [
 export default function InductriesServiced() {
     const [selected, setSelected] = useState('Beauty & Skincare')
 
+    useEffect(() => {
+        // Preload all images to avoid lag on hover
+        Object.values(imagesMap).forEach((src) => {
+            const img = new Image()
+            img.src = src
+        })
+    }, [])
+
     return (
         <div className={styles.inductriesServiced} id='industries'>
             <div className='container-xs'>
                 <div className={styles.title}>
-                    <h2>Inductries Serviced</h2>
+                    <h2>Industries Serviced</h2>
                     <p>Instantly create stunning AI-generated product videos & images for your</p>
+                </div>
+
+                {/* Preload images hiddenly */}
+                <div style={{ display: 'none' }}>
+                    {Object.values(imagesMap).map((src) => (
+                        <img key={src} src={src} alt="preload" />
+                    ))}
                 </div>
 
                 <div className={styles.allDataAlignment}>
                     {/* Center Image */}
                     <div className={styles.box}>
-                        <AnimatePresence>
-                            <motion.img
-                                key={selected}
-                                src={imagesMap[selected]}
-                                alt={selected}
-                                initial={{ opacity: 1, }}
-                                animate={{ opacity: 1, }}
-                                exit={{ opacity: 1, }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        </AnimatePresence>
+                        <motion.img
+                            key={selected}
+                            src={imagesMap[selected]}
+                            alt={selected}
+                            initial={{ opacity: 0.9 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                        />
                     </div>
 
                     {/* Left Items */}
