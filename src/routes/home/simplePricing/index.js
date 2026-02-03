@@ -114,7 +114,7 @@ export default function SimplePricing() {
   };
 
   return (
-    <div className={styles.simplePricing}>
+    <div className={styles.simplePricing} id="pricing">
       <div className='container-xs3'>
         <div className={styles.title}>
           <h2>Simple Pricing</h2>
@@ -202,13 +202,16 @@ export default function SimplePricing() {
         <div className={styles.agencyIntegration}>
           <h4>Agency Integration</h4>
           <div className={styles.gridList}>
-            <div className={styles.items}><CheckIcon /><span>White labeling branded with your interface</span></div>
-            <div className={styles.items}><CheckIcon /><span>Custom model tuning</span></div>
-            <div className={styles.items}><CheckIcon /><span>API & custom integrations-workflow tools,cloud,CRM,DAM,social</span></div>
-            <div className={styles.items}><CheckIcon /><span>99.5% uptime with priority support & analytics</span></div>
-            <div className={styles.items}><CheckIcon /><span>Highest video & image volume tiers</span></div>
-            <div className={styles.items}><CheckIcon /><span>Dedicated account & technical support managment</span></div>
-            <div className={styles.items}><CheckIcon /><span>Contact for custom configuration plan</span></div>
+            <div className={styles.items}><CheckIcon /><span>White Labeling- Branded with Your Interface</span></div>
+            <div className={styles.items}><CheckIcon /><span>API & Custom Integrations- Workflow Tools, Cloud, CRM, DAM, Social</span></div>
+            <div className={styles.items}><CheckIcon /><span>Highest Video & Image Volume Tiers</span></div>
+            <div className={styles.items}><CheckIcon /><span>Custom Model Tuning</span></div>
+            <div className={styles.items}><CheckIcon /><span>99.5% Uptime SLA and Priority Support, Full analytics & reporting dashboard
+            </span></div>
+            <div className={styles.items}><CheckIcon /><span>Dedicated Account & Technical Support Management
+            </span></div>
+            <div className={styles.items}><CheckIcon /><span>Contact for Custom Configuration Plan
+            </span></div>
           </div>
         </div>
       </div>
