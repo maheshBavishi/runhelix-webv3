@@ -95,7 +95,7 @@ export default function HelixOrchestrationLayer() {
     const lineProgress = useTransform(activeProgress, [0.34, 0.58], [0, 1])
 
     return (
-        <div ref={containerRef} className={styles.helixOrchestrationLayer}>
+        <div ref={containerRef} className={styles.helixOrchestrationLayer} id='workflow'>
             <motion.div
                 className={styles.stickyWrap}
                 style={{ opacity: sectionOpacity }}

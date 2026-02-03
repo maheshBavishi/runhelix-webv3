@@ -81,6 +81,7 @@
             color: #FFF;
             font-size: 18px;
             font-style: normal;
+            text-decoration: none;
             font-weight: 400;
             line-height: normal;
             @include font-normal;
@@ -121,6 +122,7 @@
                 line-height: normal;
                 @include font-normal;
                 cursor: pointer;
+                text-decoration: none;
             }
         }
 

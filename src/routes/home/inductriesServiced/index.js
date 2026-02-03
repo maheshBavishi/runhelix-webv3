@@ -53,7 +53,7 @@ export default function InductriesServiced() {
     const [selected, setSelected] = useState('Beauty & Skincare')
 
     return (
-        <div className={styles.inductriesServiced}>
+        <div className={styles.inductriesServiced} id='industries'>
             <div className='container-xs'>
                 <div className={styles.title}>
                     <h2>Inductries Serviced</h2>
@@ -63,14 +63,14 @@ export default function InductriesServiced() {
                 <div className={styles.allDataAlignment}>
                     {/* Center Image */}
                     <div className={styles.box}>
-                        <AnimatePresence mode="wait">
+                        <AnimatePresence>
                             <motion.img
                                 key={selected}
                                 src={imagesMap[selected]}
                                 alt={selected}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 1, }}
+                                animate={{ opacity: 1, }}
+                                exit={{ opacity: 1, }}
                                 transition={{ duration: 0.2 }}
                             />
                         </AnimatePresence>

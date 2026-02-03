@@ -12,6 +12,7 @@ import CreateProduct from './createProduct'
 import SimplePricing from './simplePricing'
 
 export default function HomePage() {
+
   return (
     <div>
       <Herobanner />

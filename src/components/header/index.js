@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './header.module.scss';
 import classNames from "classnames";
+import Link from "next/link";
 const Logo = '/assets/logo/logo.svg';
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("noScroll");
@@ -45,12 +46,16 @@ export default function Header() {
       <div className='header-container'>
         <div className={styles.headerDesign}>
           <div className={styles.logo}>
-            <img src={Logo} alt='Logo' />
+            <Link href="/">
+              <img src={Logo} alt='Logo' />
+            </Link>
           </div>
           <div className={styles.button}>
-            <button aria-label='Login or Signup'>
-              Login or Signup
-            </button>
+            <a href="https://platform.runhelix.ai/auth" target="_blank">
+              <button aria-label='Login or Signup'>
+                Login or Signup
+              </button>
+            </a>
           </div>
         </div>
       </div>
