@@ -15,14 +15,16 @@
         background-size: cover;
         left: 0;
         height: 100%;
-
         background-repeat: no-repeat;
-        animation: bg-change 3s infinite;
-        background-position: center;
+        animation: bg-change 5s infinite;
+        background-position: center center;
     }
 
     .footerText {
         padding: 60px 0 0 0;
+        position: relative;
+        z-index: 9;
+        top: 20px;
 
         h4 {
             text-align: center;
@@ -39,23 +41,23 @@
 
     @keyframes bg-change {
         0% {
-            background-image: url('/assets/images/footer-layer1.png');
+            background: url('/assets/images/footer-layer1.png'), #0E0E10;
             transition: .3s ease-in-out;
         }
 
         40% {
-            background-image: url('/assets/images/footer-layer2.png');
+            background: url('/assets/images/footer-layer2.png'), #0E0E10;
             transition: .3s ease-in-out;
         }
 
         75% {
-            background-image: url('/assets/images/footer-layer1.png');
+            background: url('/assets/images/footer-layer1.png'), #0E0E10;
             transition: .3s ease-in-out;
 
         }
 
         100% {
-            background-image: url('/assets/images/footer-layer2.png');
+            background: url('/assets/images/footer-layer2.png'), #0E0E10;
             transition: .3s ease-in-out;
 
         }
