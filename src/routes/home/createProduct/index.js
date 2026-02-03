@@ -8,6 +8,7 @@ import PlusIcon from '@/icons/plusIcon';
 import PlayWhiteIcon from '@/icons/playWhiteIcon';
 
 const PosterImage = '/assets/images/poster.png';
+const BottomVec = '/assets/images/bottom-vec.png';
 const AnimationVide = "/assets/images/logo-animation.webm";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -353,7 +354,7 @@ export default function CreateProduct() {
                             <div className={styles.subtitle}>
                                 <h2>Good Afternoon,Jason What’s on <span>your mind?</span></h2>
                             </div>
-                            
+
                             <div className={styles.videobox} style={{ minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                 {isGenerating ? (
                                     <div style={{ height: '100%', minHeight: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#111', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
@@ -369,7 +370,7 @@ export default function CreateProduct() {
                                             {loadingMessages[currentMessage]}
                                         </p>
                                         <p style={{ color: '#ffffff70', fontSize: '12px', fontWeight: '500', marginBottom: '8px' }}>
-                                            Helix is now running . <br/> Videos can take up to 7 minutes to generate. <br/> Please enjoy a snack.
+                                            Helix is now running . <br /> Videos can take up to 7 minutes to generate. <br /> Please enjoy a snack.
                                         </p>
                                     </div>
                                 ) : generatedVideoUrl ? (
@@ -437,13 +438,13 @@ export default function CreateProduct() {
 
                             <div className={styles.toggleCenter}>
                                 <div className={styles.buttonGroup}>
-                                    <button 
+                                    <button
                                         className={classNames(activeTab === 'video' ? styles.active : "")}
                                         onClick={() => setActiveTab('video')}
                                     >
                                         Video
                                     </button>
-                                    <button 
+                                    <button
                                         className={classNames(activeTab === 'image' ? styles.active : "")}
                                         onClick={() => setActiveTab('image')}
                                     >
@@ -452,7 +453,7 @@ export default function CreateProduct() {
                                 </div>
                             </div>
 
-                            <div 
+                            <div
                                 className={styles.messageBox}
                                 onDragOver={handleDragOver}
                                 onDragLeave={handleDragLeave}
@@ -469,22 +470,22 @@ export default function CreateProduct() {
                                         <button onClick={() => { setSelectedFile(null); setPreview(null); }} style={{ background: 'rgba(0,0,0,0.1)', border: 'none', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', cursor: 'pointer', fontSize: '14px' }}>×</button>
                                     </div>
                                 )}
-                                <textarea 
+                                <textarea
                                     placeholder='Simply enter your prompt and media here to create your first video'
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 ></textarea>
-                                
+
                                 {errorMessage && <div style={{ color: 'red', fontSize: '12px', padding: '0 16px' }}>{errorMessage}</div>}
 
                                 <div className={styles.chatBottomAlignment}>
                                     <div className={styles.leftAlignment}>
-                                        <input 
-                                            type="file" 
-                                            ref={fileInputRef} 
-                                            onChange={handleFileChange} 
-                                            accept="image/*" 
-                                            style={{ display: 'none' }} 
+                                        <input
+                                            type="file"
+                                            ref={fileInputRef}
+                                            onChange={handleFileChange}
+                                            accept="image/*"
+                                            style={{ display: 'none' }}
                                         />
                                         <button onClick={triggerFileInput}>
                                             <PlusIcon />
@@ -492,8 +493,8 @@ export default function CreateProduct() {
                                         </button>
                                     </div>
                                     <div className={styles.rightAlignment}>
-                                        <button 
-                                            onClick={handleRunHelix} 
+                                        <button
+                                            onClick={handleRunHelix}
                                             disabled={isGenerating}
                                             style={{ opacity: isGenerating ? 0.7 : 1, cursor: isGenerating ? 'not-allowed' : 'pointer' }}
                                         >
@@ -502,6 +503,9 @@ export default function CreateProduct() {
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div className={styles.bottomAlign}>
+                                <img src={BottomVec} alt="BottomVec" />
                             </div>
                         </div>
                     </div>
