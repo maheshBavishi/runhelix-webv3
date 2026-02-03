@@ -1,529 +1,225 @@
-"use client";
-import React, { useState, useEffect } from "react";
+'use client'
+import React, { useState, useEffect } from 'react'
 import { createClient } from "@supabase/supabase-js";
-import styles from "./simplePricing.module.scss";
+import styles from './simplePricing.module.scss';
+import classNames from 'classnames';
+import CheckIcon from '@/icons/checkIcon';
 
-
-
-const InfoIcon = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 16v-4" />
-    <path d="M12 8h.01" />
-  </svg>
-);
-
-const Check = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M20 6 9 17l-5-5" />
-  </svg>
-);
-
+const StartIcon = '/assets/icons/start.svg';
+const ScaleIcon = '/assets/icons/Scale.svg';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
 const supabase = (supabaseUrl && supabaseAnonKey) ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
-const CreditUsageTooltip = ({ type, tier, monthlyPrice, videoCount, imageCount }) => {
-  return (
-    <div className={styles.infoIcon}>
-      <InfoIcon style={{ width: 14, height: 14 }} />
-      <div className={styles.tooltipContent}>
-        <div className={styles.tooltipTitle}>
-          <InfoIcon />
-          <span>{type === "video" ? "Video Generation Math" : "Image Generation Math"}</span>
-        </div>
-
-        {type === "video" && (
-          <>
-            <div className={`${styles.tooltipRow} ${styles.bgRow}`}>
-              <div className={styles.label}>
-                Sora 2 (:12s)
-              </div>
-              <div className={`${styles.value} ${styles.highlight}`}>10 Tokens</div>
-            </div>
-            <div className={`${styles.tooltipRow} ${styles.bgRow}`}>
-              <div className={styles.label}>
-                Veo 3.1 (:08s)
-              </div>
-              <div className={`${styles.value} ${styles.highlight}`}>10 Tokens</div>
-            </div>
-          </>
-        )}
-
-        {type === "image" && (
-          <div className={`${styles.tooltipRow} ${styles.bgRow}`}>
-            <div className={styles.label}>
-              Cost per Image
-              <small>(Gemini 2.5)</small>
-            </div>
-            <div className={`${styles.value} ${styles.highlight}`}>1 Credit</div>
-          </div>
-        )}
-
-        <div className={styles.tooltipRow}>
-          <div className={styles.label} style={{ fontWeight: "bold", textTransform: "uppercase", fontSize: "10px", color: "#64748b" }}>
-            {tier} Plan Capacity
-          </div>
-        </div>
-
-        {type === "video" && (
-          <div style={{ background: "rgba(0,0,0,0.03)", padding: "12px", borderRadius: "8px" }}>
-            <div className={styles.tooltipRow}>
-              <div className={styles.label}>Total Tokens</div>
-              <div className={`${styles.value} ${styles.highlight}`}>{videoCount * 10} Tokens</div>
-            </div>
-            <div className={styles.divider} />
-            <div className={styles.tooltipRow}>
-              <div className={styles.label} style={{ color: "#64748b" }}>Total Videos</div>
-              <div className={styles.value}>{videoCount}</div>
-            </div>
-          </div>
-        )}
-
-        {type === "image" && (
-          <div style={{ background: "rgba(0,0,0,0.03)", padding: "12px", borderRadius: "8px" }}>
-            <div className={styles.tooltipRow}>
-              <div className={styles.label}>Total Tokens</div>
-              <div className={`${styles.value} ${styles.highlight}`}>{imageCount * 1} Tokens</div>
-            </div>
-            <div className={styles.divider} />
-            <div className={styles.tooltipRow}>
-              <div className={styles.label} style={{ color: "#64748b" }}>Total Images</div>
-              <div className={styles.value}>{imageCount}</div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+// Static metadata matching "Image 3" for features and savings
+const PLAN_METADATA = {
+  'start': {
+    icon: StartIcon,
+    description: 'Perfect for Small Teams and Startups',
+    features: [
+      'Up to 30 videos/month (12 second video)',
+      '12,24:48 second video options',
+      'up to 300 free images',
+      'Ideal for founders, solo operators, early launches',
+      'No contracts, cancel anytime.'
+    ],
+    savingsAmount: '$7.400', // Matches screenshot "7.400" vs typical "7,400"
+    traditionalCostText: '30 UGC videos* $250 = $7,500/month',
+    traditionalCostSub: 'Paid to affiliates & creators'
+  },
+  'scale': {
+    icon: ScaleIcon,
+    description: 'Perfect for Small Teams and Startups',
+    features: [
+      'up to 150 videos/month (12 second video)',
+      '12,24:48 second video options',
+      'up to 1500 free images',
+      'Built for scaling DTC brands and products teams',
+      'Consistent daily content across social & ads'
+    ],
+    savingsAmount: '$37,000',
+    traditionalCostText: '150 UGC videos* $250 = $37,500/month',
+    traditionalCostSub: 'Paid to affiliates & creators'
+  },
+  'agency': {
+    icon: StartIcon,
+    description: 'Perfect for Small Teams and Startups',
+    features: [
+      'up to 150 videos/month (12 second video)', // Matches screenshot text if visible, or logical fallback
+      '12,24:48 second video options',
+      'up to 4500 free images',
+      'Designed for agencies & in house brand teams',
+      'Serve multiple clients without adding headcount'
+    ],
+    savingsAmount: '$111,000', // Corrected value for Agency typically
+    traditionalCostText: '450 videos* $250 = $112,500/mo',
+    traditionalCostSub: 'Paid to affiliates & creators'
+  }
 };
 
-
 export default function SimplePricing() {
-  const [billingCycle, setBillingCycle] = useState("monthly");
+  const [isYearly, setIsYearly] = useState(false);
   const [plans, setPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Helper to reliably find metadata based on normalized name
+  const getMetadata = (name) => {
+    const normalized = (name || '').toLowerCase();
+    if (normalized.includes('start')) return PLAN_METADATA['start'];
+    if (normalized.includes('scale')) return PLAN_METADATA['scale'];
+    if (normalized.includes('agency')) return PLAN_METADATA['agency'];
+    return PLAN_METADATA['start']; // Fallback
+  };
 
   useEffect(() => {
-    async function fetchPlans() {
-      if (!supabase) return;
-      const { data, error } = await supabase
-        .from("plan")
-        .select("*")
-        .order("price", { ascending: true });
-
-      if (data) {
-        setPlans(data);
+    const fetchPlans = async () => {
+      if (!supabase) {
+        console.error("Supabase client not initialized");
+        setLoading(false);
+        return;
       }
-    }
+      try {
+        const { data, error } = await supabase.from('plan').select('*');
+        if (error) {
+          console.error('Error fetching plans:', error);
+        } else {
+          console.log('Fetched plans:', data);
+          setPlans(data || []);
+        }
+      } catch (err) {
+        console.error('Unexpected error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchPlans();
   }, []);
 
-  const filteredPlans = plans.filter((plan) => plan.type === billingCycle && !plan.name.toLowerCase().includes("top up"));
+  // Filter logic
+  const visiblePlans = plans.filter(plan => {
+    const interval = (plan.type || plan.interval || '').toLowerCase();
+    const target = isYearly ? 'year' : 'month';
+    const isMainPlan = ['start', 'scale', 'agency'].some(k => (plan.name || '').toLowerCase().includes(k));
+    return interval.startsWith(target) && isMainPlan;
+  }).sort((a, b) => a.price - b.price);
 
-  const renderCardBody = (plan) => {
-    const name = plan.name.toLowerCase();
-    const periodLabel = billingCycle === 'yearly' ? '/ year' : '/ month';
-
-    // Default credits if DB value missing
-    let safeCredits = plan.tokens;
-    if (!safeCredits) {
-      if (name.includes("agency")) safeCredits = 4500;
-      else if (name.includes("scale")) safeCredits = 1500;
-      else safeCredits = 300;
+  // Price Display Logic
+  const getDisplayPrice = (plan) => {
+    const interval = (plan.type || plan.interval || '').toLowerCase();
+    if (interval.startsWith('year')) {
+      return Math.floor(plan.price / 12);
     }
-
-    const videoCount = Math.floor(safeCredits / 10);
-    const imageCount = safeCredits;
-    const monthlyPriceStr = `$${Math.round(plan.price)}`; // Approximate for display in tooltip if needed
-
-    if (name.includes("start")) {
-      return (
-        <div className={styles.cardBody}>
-          <ul className={styles.featuresList}>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontWeight: '600' }}>{safeCredits.toLocaleString()} Tokens {periodLabel}</span>
-                <div className={styles.infoIcon}>
-                  <InfoIcon style={{ width: 14, height: 14 }} />
-                  <div className={styles.tooltipContent} style={{ width: 'max-content', maxWidth: '250px' }}>
-                    Unused Tokens don't roll over to the next {billingCycle === 'yearly' ? 'year' : 'month'}
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li className={styles.highlight}>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {videoCount} videos{periodLabel} <span><small>(:12 second video)</small></span></span>
-                <CreditUsageTooltip
-                  type="video"
-                  tier="Start"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            {/* <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>:12, :24, :48 second video options</span>
-            </li> */}
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {imageCount} Free Images</span>
-                <CreditUsageTooltip
-                  type="image"
-                  tier="Start"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            <li>
-              <InfoIcon style={{ color: '#29a6b4' }} />
-              <span>Ideal for founders, solo operators, early launches</span>
-            </li>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>No contracts. Cancel anytime.</span>
-            </li>
-          </ul>
-
-          <div className={styles.divider}></div>
-
-          <div className={styles.savingsCompact}>
-            <div className={styles.savingsTop}>
-              <div className={styles.saveTitle}>Monthly Savings</div>
-              <div className={styles.saveValue}>$7,400<span>/mo</span></div>
-            </div>
-            <div className={styles.savingsBottom}>
-              <div className={styles.traditionalContent}>
-                <strong>Traditional Cost:</strong> 30 UGC videos × $250
-                <br />= $7,500/ month <br />
-                <span className={styles.subtext}>paid to affiliates & creators</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } else if (name.includes("scale")) {
-      return (
-        <div className={styles.cardBody}>
-          <ul className={styles.featuresList}>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontWeight: '600' }}>{safeCredits.toLocaleString()} Tokens {periodLabel}</span>
-                <div className={styles.infoIcon}>
-                  <InfoIcon style={{ width: 14, height: 14 }} />
-                  <div className={styles.tooltipContent} style={{ width: 'max-content', maxWidth: '250px' }}>
-                    Unused Tokens don't roll over to the next {billingCycle === 'yearly' ? 'year' : 'month'}
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li className={styles.highlight}>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {videoCount} videos{periodLabel} <span><small>(:12 second video)</small></span></span>
-                <CreditUsageTooltip
-                  type="video"
-                  tier="Scale"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            {/* <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>:12, :24, :48 second video options</span>
-            </li> */}
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {imageCount} Free Images</span>
-                <CreditUsageTooltip
-                  type="image"
-                  tier="Scale"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            <li>
-              <InfoIcon style={{ color: '#29a6b4' }} />
-              <span>Built for scaling DTC brands and product teams</span>
-            </li>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>Consistent daily content across social & ads</span>
-            </li>
-          </ul>
-
-          <div className={styles.divider}></div>
-
-          <div className={styles.savingsCompact}>
-            <div className={styles.savingsTop}>
-              <div className={styles.saveTitle}>Monthly Savings</div>
-              <div className={styles.saveValue}>$37,000<span>/mo</span></div>
-            </div>
-            <div className={styles.savingsBottom}>
-              <div className={styles.traditionalContent}>
-                <strong>Traditional Cost:</strong> 150 UGC videos × $250
-                <br />= $37,500/ month <br />
-                <span className={styles.subtext}>paid to affiliates & creators</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } else if (name.includes("agency")) {
-      return (
-        <div className={styles.cardBody}>
-          <ul className={styles.featuresList}>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontWeight: '600' }}>{safeCredits.toLocaleString()} Tokens {periodLabel}</span>
-                <div className={styles.infoIcon}>
-                  <InfoIcon style={{ width: 14, height: 14 }} />
-                  <div className={styles.tooltipContent} style={{ width: 'max-content', maxWidth: '250px' }}>
-                    Unused Tokens don't roll over to the next {billingCycle === 'yearly' ? 'year' : 'month'}
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li className={styles.highlight}>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {videoCount} videos{periodLabel} <span><small>(:12 second video)</small></span></span>
-                <CreditUsageTooltip
-                  type="video"
-                  tier="Agency"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            {/* <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>:12, :24, :48 second video options</span>
-            </li> */}
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>Up to {imageCount} Free Images</span>
-                <CreditUsageTooltip
-                  type="image"
-                  tier="Agency"
-                  monthlyPrice={monthlyPriceStr}
-                  videoCount={videoCount}
-                  imageCount={imageCount}
-                />
-              </div>
-            </li>
-            <li>
-              <InfoIcon style={{ color: '#29a6b4' }} />
-              <span>Designed for agencies & in-house brand teams</span>
-            </li>
-            <li>
-              <Check style={{ color: '#29a6b4' }} />
-              <span>Serve multiple clients without adding headcount</span>
-            </li>
-          </ul>
-
-          <div className={styles.divider}></div>
-
-          <div className={styles.savingsCompact}>
-            <div className={styles.savingsTop}>
-              <div className={styles.saveTitle}>Monthly Savings</div>
-              <div className={styles.saveValue}>$20K–111K<span>/mo</span><div className={styles.subtextSmall}>depending on approach</div></div>
-            </div>
-            <div className={styles.savingsBottom}>
-              <div className={styles.traditionalContent}>
-                <strong>Traditional Cost:</strong>
-                <div className={styles.optionBlock}>
-                  <strong>Option A — Outsourcing:</strong><br />
-                  450 videos × $250 = $112,500/mo
-                </div>
-                <div className={styles.optionBlock}>
-                  <strong>Option B — In-house:</strong><br />
-                  - 2 video editors (~$11,600/mo)<br />
-                  - 2 UGC creators (~$10,000/mo)<br />
-                  = ~$21,600/ month
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
+    return plan.price;
   };
 
   return (
-    <>
-      <div className={styles.simplepricingmain} id="pricing">
-        <div className="container-md">
-          <div className={styles.title}>
-            <h1>Simple Pricing</h1>
-            <div className={styles.togglechip}>
-              <div
-                className={`${styles.togglechileft} ${billingCycle === 'monthly' ? styles.active : ''}`}
-                onClick={() => setBillingCycle('monthly')}
-                style={{ cursor: 'pointer', background: billingCycle === 'monthly' ? 'linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%)' : 'transparent', color: billingCycle === 'monthly' ? '#fff' : 'inherit', boxShadow: billingCycle === 'monthly' ? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' : 'none' }}
-              >
-                <p>Monthly Billing</p>
-              </div>
-              <div
-                className={`${styles.togglechiright} ${billingCycle === 'yearly' ? styles.active : ''}`}
-                onClick={() => setBillingCycle('yearly')}
-                style={{ cursor: 'pointer', background: billingCycle === 'yearly' ? 'linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%)' : 'transparent', color: billingCycle === 'yearly' ? '#fff' : 'inherit', boxShadow: billingCycle === 'yearly' ? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' : 'none' }}
-              >
-                <p>Yearly Billing</p>
-                <div className={styles.savebtn}>
-                  <span>Save 20%</span>
-                </div>
-              </div>
-            </div>
-            <div className={styles.titlepera}>
-              <p>
-                VIDEOS: UGC · Ads · Promotional · Educational · Short-form ·
-                Long-form IMAGES: Photoshoot · Lifestyle · Model · Infographic
-              </p>
-            </div>
+    <div className={styles.simplePricing}>
+      <div className='container-xs3'>
+        <div className={styles.title}>
+          <h2>Simple Pricing</h2>
+          <p>Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+        </div>
+
+        <div className={styles.centerAlignment}>
+          <div className={styles.toggleGroup}>
+            <span>Monthly Billing</span>
+            <label className={styles.switch}>
+              <input
+                type="checkbox"
+                checked={isYearly}
+                onChange={(e) => setIsYearly(e.target.checked)}
+              />
+              <span className={classNames(styles.slider, styles.round)}></span>
+            </label>
+            <span>Yearly Billing</span>
           </div>
-          <div className={styles.grid}>
-            {filteredPlans.map((plan) => (
-              <div key={plan.id} className={`${styles.pricingCard} ${plan.name.toLowerCase().includes('scale') ? styles.popular : ''}`}>
-                {plan.name.toLowerCase().includes('scale') && <div className={styles.popularBadge}>Most Popular</div>}
-                <div className={styles.cardHeader}>
-                  <div className={styles.tierName}>{plan.name}</div>
-                  <div className={styles.price}>
-                    ${billingCycle === "yearly" ? Math.round(plan.price / 12) : plan.price}
-                    <span>/ month</span>
-                  </div>
-                  {billingCycle === "yearly" && (
-                    <div style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>
-                      Billed ${plan.price} yearly
+        </div>
+
+        <div className={styles.grid}>
+          {loading && <div style={{ width: '100%', textAlign: 'center', color: 'black' }}>Loading plans...</div>}
+
+          {!loading && visiblePlans.length > 0 ? (
+            visiblePlans.map((plan, index) => {
+              const meta = getMetadata(plan.name);
+              const displayPrice = getDisplayPrice(plan);
+
+              return (
+                <div className={styles.griditems} key={plan.id || index}>
+                  <div className={styles.firstList}>
+                    <img src={meta.icon} alt={`${plan.name} Icon`} />
+                    <div className={styles.textstyle}>
+                      <h3>{plan.name}</h3>
+                      {/* Use static description if needed, or DB description */}
+                      <p>{meta.description || plan.description}</p>
+                      <h4>
+                        ${displayPrice} <sub> / month </sub>
+                      </h4>
+                      {/* Show 'Billed yearly' only if yearly toggle is on AND plan is actually a yearly plan */}
+                      {isYearly && (
+                        <div style={{ fontSize: '13px', color: '#6B7280', fontWeight: '400', marginTop: '4px' }}>
+                          Billed ${plan.price} yearly
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+                    <div className={styles.buttonDesign}>
+                      <button>{plan.cta_text || 'Choose Plan'}</button>
+                    </div>
+                    <div className={styles.allListAlignment}>
+                      {meta.features.map((feature, i) => (
+                        <div className={styles.list} key={i}>
+                          <CheckIcon />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                <a
-                  className={styles.subscribeBtn}
-                  href={`https://platform.runhelix.ai/pricing?plan=${plan.name}&billing=${billingCycle}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {plan.name.toLowerCase().includes("start")
-                    ? "Get Started"
-                    : plan.name.toLowerCase().includes("scale")
-                      ? "Choose Scale"
-                      : plan.name.toLowerCase().includes("agency")
-                        ? "Choose Agency"
-                        : "Subscribe"}
-                </a>
+                  <div className={styles.lastBox}>
+                    <div className={styles.cardheader} style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      width: '100%',
+                      marginBottom: '12px',
+                      borderBottom: '1px solid #E5E7EB',
+                      paddingBottom: '12px'
+                    }}>
+                      <span style={{ fontSize: '14px', color: '#6B7280', fontWeight: '500' }}>
+                        Monthly Savings
+                      </span>
+                      <h5 style={{ fontSize: '16px', fontWeight: '700', }}>
+                        {meta.savingsAmount} <sub style={{ fontSize: '12px', fontWeight: '400', bottom: '0' }}>/ month</sub>
+                      </h5>
+                    </div>
+                    <div style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '4px' }}>
+                      <p style={{ fontWeight: '700', }}>Traditional Cost:</p> {meta.traditionalCostText}
+                    </div>
+                    <span style={{ fontSize: '12px', display: 'block' }}>
+                      {meta.traditionalCostSub}
+                    </span>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            !loading && <div style={{ width: '100%', textAlign: 'center', color: 'black' }}>No plans found for {isYearly ? 'yearly' : 'monthly'} billing.</div>
+          )}
+        </div>
 
-                {renderCardBody(plan)}
-              </div>
-            ))}
-            {/* Logic fallback if no plans loaded yet */}
-            {plans.length === 0 && (
-              <div style={{ width: '100%', textAlign: 'center', gridColumn: 'span 3', padding: '40px' }}>Loading plans...</div>
-            )}
-          </div>
-
-          <div className={styles.pricingbottommain}>
-            <div className={styles.pricingbottom}>
-              <div className={styles.pricingbottomtopbox}>
-                <h6>Agency- Integration</h6>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>White Labeling- Branded with Your Interface</span>
-                </div>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span> API & Custom Integrations- Workflow Tools, Cloud, CRM, DAM, Social.</span>
-                </div>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>Highest Video & Image Volume Tiers</span>
-                </div>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>Custom Model Tuning</span>
-                </div>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>99.5% Uptime SLA and Priority Support, Full analytics & reporting dashboard</span>
-                </div>
-                {/* <div className={styles.iconText}>
-                  <img src={CheckIcon} alt="CheckIcon" />
-                  <span>$4,999 Set-up Fee + Integrations Custom Model Tuning & Content
-                    Tiers</span>
-                </div> */}
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>Dedicated Account & Technical Support Management</span>
-                </div>
-                <div className={styles.iconText}>
-                  <Check style={{ color: '#29a6b4', width: '20px', height: '20px', flexShrink: 0 }} />
-                  <span>Contact for Custom Configuration Plan</span>
-                </div>
-                {/* <a href="https://platform.runhelix.ai/auth" target="_blank"> */}
-                <button type="button" className={styles.contactbtn}>
-                  Contact Us
-                </button>
-                {/* </a> */}
-              </div>
-              <div className={styles.pricingbottombottombox}>
-                <p className={styles.litsttitle}>* Industry Benchmark Costs</p>
-                <ul>
-                  <li>Agency short-form video: $800–$1,500 per video</li>
-                  <li>UGC creator (10–15 sec): $250–$600 per video</li>
-                  <li>
-                    In-house video hire: $65K–$90K/year ($5,400–$7,500/ month per
-                    person)
-                  </li>
-                  <li>Production timelines: days to weeks</li>
-                </ul>
-                <p className={styles.instantly}>Run Helix: Instantly</p>
-              </div>
-            </div>
+        <div className={styles.agencyIntegration}>
+          <h4>Agency Integration</h4>
+          <div className={styles.gridList}>
+            <div className={styles.items}><CheckIcon /><span>White labeling branded with your interface</span></div>
+            <div className={styles.items}><CheckIcon /><span>Custom model tuning</span></div>
+            <div className={styles.items}><CheckIcon /><span>API & custom integrations-workflow tools,cloud,CRM,DAM,social</span></div>
+            <div className={styles.items}><CheckIcon /><span>99.5% uptime with priority support & analytics</span></div>
+            <div className={styles.items}><CheckIcon /><span>Highest video & image volume tiers</span></div>
+            <div className={styles.items}><CheckIcon /><span>Dedicated account & technical support managment</span></div>
+            <div className={styles.items}><CheckIcon /><span>Contact for custom configuration plan</span></div>
           </div>
         </div>
       </div>
-    </>
-  );
+    </div>
+  )
 }
