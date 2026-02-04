@@ -54,7 +54,7 @@ export default function Herobanner() {
           >
             <span>AI Content Studio</span>
             <h1>
-              Create Stunning Product Videos & Images That Small
+              Create Stunning Product Videos & Images That Sale
             </h1>
           </motion.div>
 
