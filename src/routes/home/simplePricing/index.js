@@ -7,6 +7,7 @@ import CheckIcon from '@/icons/checkIcon';
 
 const StartIcon = '/assets/icons/start.svg';
 const ScaleIcon = '/assets/icons/Scale.svg';
+const LogoIcon = '/assets/icons/logo-primary.svg';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -200,7 +201,10 @@ export default function SimplePricing() {
         </div>
 
         <div className={styles.agencyIntegration}>
-          <h4>Agency Integration</h4>
+          <div className={styles.agencyIntegrationHeader}>
+            <img src={LogoIcon} alt='LogoIcon' />
+            <h4>Agency Integration</h4>
+          </div>
           <div className={styles.gridList}>
             <div className={styles.items}><CheckIcon /><span>White Labeling- Branded with Your Interface</span></div>
             <div className={styles.items}><CheckIcon /><span>API & Custom Integrations- Workflow Tools, Cloud, CRM, DAM, Social</span></div>

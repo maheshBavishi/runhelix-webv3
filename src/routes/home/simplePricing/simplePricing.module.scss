@@ -444,16 +444,29 @@
         backdrop-filter: blur(58px);
         padding: 50px 24px;
 
-        h4 {
-            color: #121212;
-            font-size: 32px;
-            font-style: normal;
-            text-align: center;
-            margin: 0 0 32px 0;
-            font-weight: 700;
-            line-height: normal;
-            @include font-bold;
+        .agencyIntegrationHeader {
+            padding: 0 0 32px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+
+            img {
+                display: block;
+            }
+
+            h4 {
+                color: #121212;
+                font-size: 32px;
+                font-style: normal;
+                text-align: center;
+                font-weight: 700;
+                line-height: normal;
+                @include font-bold;
+            }
         }
+
+
 
         .gridList {
             display: flex;
