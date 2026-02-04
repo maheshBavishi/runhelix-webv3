@@ -8,6 +8,10 @@
     background: linear-gradient(180deg, #010101 0%, #171717 100%);
     position: relative;
 
+    @include respond-to("md") {
+        padding: 60px 20px;
+    }
+
     .image {
         position: absolute;
         right: 0;
@@ -52,6 +56,11 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+
+            @include respond-to("md") {
+                position: relative;
+                z-index: 9;
+            }
 
             .items {
                 border-radius: 12px;
@@ -131,6 +140,10 @@
             @include font-semibold;
             max-width: 575px;
             margin: 0 auto 28px auto;
+
+            @include respond-to("md") {
+                font-size: 32px;
+            }
         }
 
         .buttonCenter {

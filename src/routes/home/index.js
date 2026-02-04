@@ -10,6 +10,7 @@ import InductriesServiced from './inductriesServiced'
 import MarketingSection from './marketingSection'
 import CreateProduct from './createProduct'
 import SimplePricing from './simplePricing'
+import HelixOrchestrationLayerMobile from './helixOrchestrationLayerMobile'
 
 export default function HomePage() {
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Herobanner />
       <AiAds />
       <HelixOrchestrationLayer />
+      <HelixOrchestrationLayerMobile />
       {/* video */}
       <>
         <MultiPlatform />

@@ -29,6 +29,10 @@
             text-align: center;
             line-height: normal;
             @include font-semibold;
+
+            @include respond-to("md") {
+                font-size: 32px;
+            }
         }
 
         .allIconAlignment {

@@ -11,6 +11,10 @@
 
     position: relative;
 
+    @include respond-to("md") {
+        display: none;
+    }
+
 
     .grid {
         display: grid;
@@ -250,6 +254,10 @@
             font-weight: 600;
             text-align: center;
             line-height: normal;
+
+            @include respond-to("md") {
+                font-size: 32px;
+            }
         }
 
         p {

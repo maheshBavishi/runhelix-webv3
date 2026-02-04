@@ -27,6 +27,10 @@
         z-index: 9;
         top: 60px;
 
+        @include respond-to("md") {
+            padding: 20px 0 0 0;
+        }
+
         h4 {
             text-align: center;
             font-size: 25rem;
@@ -38,6 +42,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: "Righteous", sans-serif;
+
+            @include respond-to("md") {
+                font-size: 20rem;
+                line-height: 250px;
+            }
         }
     }
 
@@ -79,6 +88,12 @@
         position: relative;
         z-index: 9;
         border-bottom: 1px solid #1c1c1f;
+
+        @include respond-to("md") {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
 
         .socialIcon {
             display: flex;

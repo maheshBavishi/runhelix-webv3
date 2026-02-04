@@ -56,6 +56,10 @@
                 max-width: 575px;
                 @include font-semibold;
                 margin: 0 0 18px 0;
+
+                @include respond-to("md") {
+                    font-size: 32px;
+                }
             }
 
             .allIconText {
@@ -66,6 +70,10 @@
                     align-items: center;
                     padding: 0 0 12px 0;
 
+                    @include respond-to("md") {
+                        grid-template-columns: 24px 1fr;
+                    }
+
                     &:last-child {
                         padding: 0;
                     }
@@ -74,6 +82,10 @@
                         max-width: 29px;
                         height: auto;
                         display: block;
+
+                        @include respond-to("md") {
+                            max-width: 24px;
+                        }
                     }
 
                     p {
@@ -83,6 +95,11 @@
                         font-weight: 500;
                         line-height: 36px;
                         @include font-medium;
+
+                        @include respond-to("md") {
+                            font-size: 18px;
+                            line-height: 30px;
+                        }
                     }
                 }
             }

@@ -84,6 +84,10 @@
         .title {
             padding: 0 0 24px 0;
 
+            @include respond-to("md") {
+                padding: 0 0 40px 0;
+            }
+
             span {
                 display: block;
                 color: #ADADAD;
@@ -94,6 +98,11 @@
                 line-height: 20px;
                 text-transform: uppercase;
                 @include font-bold;
+
+                @include respond-to("md") {
+                    font-size: 20px;
+                    padding: 0 0 20px 0;
+                }
             }
 
             h1 {
@@ -104,6 +113,10 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: normal;
+
+                @include respond-to("md") {
+                    font-size: 48px;
+                }
             }
         }
     }
@@ -135,6 +148,12 @@
                 justify-content: center;
                 align-items: center;
                 gap: 32px;
+
+                @include respond-to("md") {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: center;
+                }
 
                 img {
                     display: block;

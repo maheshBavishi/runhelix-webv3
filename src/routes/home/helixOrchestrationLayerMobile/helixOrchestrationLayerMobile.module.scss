@@ -1,0 +1,297 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
+.helixOrchestrationLayerMobile {
+    padding: 80px 0;
+    background: linear-gradient(180deg,
+            #FFFFFF 0%,
+            rgba(255, 255, 255, 0.82) 50%,
+            rgba(126, 198, 191, 0.3) 100%);
+
+    position: relative;
+    display: none;
+
+    @include respond-to("md") {
+        display: block;
+    }
+
+    .title {
+        padding: 0 0 0 0;
+
+        h2 {
+            color: #121212;
+            @include font-semibold;
+            font-size: 46px;
+            margin: 0 0 18px 0;
+            font-style: normal;
+            font-weight: 600;
+            text-align: center;
+            line-height: normal;
+
+            @include respond-to("md") {
+                font-size: 32px;
+            }
+        }
+
+        p {
+            color: #7E7E7E;
+            text-align: center;
+            font-size: 20px;
+            margin: 0 auto;
+            font-style: normal;
+            font-weight: 510;
+            line-height: 28px;
+            max-width: 489px;
+            @include font-medium;
+        }
+    }
+
+    .contentAlignment {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0;
+
+        .rightAlignmentText {
+            padding-right: 90px;
+        }
+
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 30px;
+            width: 30px;
+            left: 4px;
+            bottom: 5px;
+            background: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background: var(--3, linear-gradient(90deg, #29A6B4 0%, #9ED2C3 100%));
+
+        }
+
+
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(40px);
+            -ms-transform: translateX(40px);
+            transform: translateX(40px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+
+
+        h4 {
+            text-align: center;
+            font-size: 40px;
+            font-style: normal;
+            background: linear-gradient(180deg, #FFF 0%, #C3E5E6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            line-height: normal;
+            @include font-semibold;
+            transition: all 0.5s ease-in-out;
+
+            &.darktext {
+                background: var(--Gradient, linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%));
+                -webkit-text-fill-color: #0000;
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+        }
+    }
+
+    .threeCol {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 60px 0 40px 0;
+
+        .items {
+            background: #FFFFFF;
+            border: 0.61px solid #0000000F;
+            box-shadow: 0px 2.43px 17.82px 0px #0000001F;
+            border-radius: 6px;
+            padding: 16px;
+
+            p {
+                font-size: 12px;
+                line-height: 16px;
+                color: #7B7B7B;
+                @include font-normal;
+                font-weight: 400;
+            }
+
+            h3 {
+                @include font-medium;
+                font-size: 16px;
+                color: #121212;
+                font-style: normal;
+                font-weight: 500;
+                margin: 0 0 10px 0;
+            }
+        }
+    }
+
+    .rightAlignment {
+        position: relative;
+
+        .promptBoxRight {
+            max-width: 280px;
+            width: 280px;
+            border-radius: 14px;
+            box-shadow: 0 2.932px 12.753px 0 rgba(0, 0, 0, 0.08);
+            position: absolute;
+            right: 20%;
+            bottom: -10%;
+
+            .body {
+                padding: 13px 12px;
+                border-radius: 0 0 14px 14px;
+                border: 0.733px solid rgba(0, 0, 0, 0.06);
+                background: #1E1E1E;
+
+                p {
+                    color: #fff;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 17.59px;
+                    @include font-medium;
+                }
+            }
+
+            .header {
+                border-radius: 14px 14px 0 0;
+                background: #F2F2F2;
+                padding: 14px 17px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span {
+                    display: block;
+                    color: #525252;
+                    font-size: 17.59px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 14.658px;
+                    text-transform: uppercase;
+                    @include font-bold;
+
+                }
+            }
+        }
+
+        .image {
+            margin-left: auto;
+            max-width: 240px;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+
+    .mainrelative {
+        position: relative;
+
+
+
+        .promptBox {
+            max-width: 260px;
+            width: 260px;
+            position: absolute;
+            bottom: -8%;
+            left: 20%;
+            border-radius: 14px;
+            border: 0.733px solid rgba(0, 0, 0, 0.06);
+            background: #F2F2F2;
+            box-shadow: 0 2.932px 21.5px 0 rgba(0, 0, 0, 0.12);
+
+            .body {
+                padding: 13px 12px;
+
+                p {
+                    color: #7E7E7E;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 510;
+                    line-height: 17.59px;
+                    @include font-medium;
+                }
+            }
+
+            .header {
+                border-radius: 14px 14px 0 0;
+                background: #1E1E1E;
+                padding: 14px 17px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                span {
+                    display: block;
+                    color: #ADADAD;
+                    font-size: 17.59px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 14.658px;
+                    text-transform: uppercase;
+                    @include font-bold;
+
+                }
+            }
+        }
+
+        .image {
+            max-width: 240px;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}

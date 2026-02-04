@@ -17,6 +17,10 @@
             margin: 0 0 18px 0;
             @include font-semibold;
             text-align: center;
+
+            @include respond-to("md") {
+                font-size: 32px;
+            }
         }
 
         p {
@@ -123,6 +127,14 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
         padding: 40px 0;
+
+        @include respond-to("md") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to("sm") {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
 
         .griditems {
