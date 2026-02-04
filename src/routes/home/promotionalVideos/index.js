@@ -9,7 +9,7 @@ const Video = '/assets/video/video2.mp4';
 
 const videoList = [
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5a3d2ca1-87f1-4fc7-88d8-5af0cb3c79a1.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/a798c647-b764-48ae-b1af-6977ac0a7702.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/ca758ba2-5749-408c-8ac4-d5001e32c37c.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/0dd4be4f-84b3-4f4a-9baf-d02c92c4d8c7.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8256e509-917b-4334-b8c9-51832b27c7a7.mp4',
 ];
@@ -65,13 +65,13 @@ export default function PromotionalVideos() {
                         autoPlay
                         loop
                         muted
-                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/3e3e829a-f023-4120-9876-51c97ab5f109.mp4"></video>
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/0adc4b69-d9f8-40bf-b3e0-80f89548bf27.mp4"></video>
                     <video playsInline
                         preload="none"
                         autoPlay
                         loop
                         muted
-                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ca0dc05f-0d3b-4a8c-b083-daedd31d05a5.mp4"></video>
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/51bf38f3-70dd-4ec2-ad5d-f07e47607580.mp4"></video>
                 </div>
             </div>
         </div>
