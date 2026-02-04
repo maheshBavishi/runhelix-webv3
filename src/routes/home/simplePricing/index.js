@@ -203,7 +203,7 @@ export default function SimplePricing() {
         <div className={styles.agencyIntegration}>
           <div className={styles.agencyIntegrationHeader}>
             <img src={LogoIcon} alt='LogoIcon' />
-            <h4>Agency Integration</h4>
+            <h4>Agency - Integration</h4>
           </div>
           <div className={styles.gridList}>
             <div className={styles.items}><CheckIcon /><span>White Labeling- Branded with Your Interface</span></div>
