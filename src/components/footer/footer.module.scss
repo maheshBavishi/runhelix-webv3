@@ -16,8 +16,9 @@
         left: 0;
         height: 100%;
         background-repeat: no-repeat;
-        animation: bg-change 5s infinite;
         background-position: center center;
+        background: url('/assets/images/footer-layer1.png'), #0E0E10;
+
     }
 
     .footerText {
@@ -40,29 +41,7 @@
         }
     }
 
-    @keyframes bg-change {
-        0% {
-            background: url('/assets/images/footer-layer1.png'), #0E0E10;
-            transition: .3s ease-in-out;
-        }
 
-        40% {
-            background: url('/assets/images/footer-layer2.png'), #0E0E10;
-            transition: .3s ease-in-out;
-        }
-
-        75% {
-            background: url('/assets/images/footer-layer1.png'), #0E0E10;
-            transition: .3s ease-in-out;
-
-        }
-
-        100% {
-            background: url('/assets/images/footer-layer2.png'), #0E0E10;
-            transition: .3s ease-in-out;
-
-        }
-    }
 
     .line {
         width: 100%;
