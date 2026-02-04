@@ -16,53 +16,71 @@
         display: block;
     }
 
-    .title {
-        padding: 0 0 0 0;
 
-        h2 {
-            color: #121212;
-            @include font-semibold;
-            font-size: 46px;
-            margin: 0 0 18px 0;
-            font-style: normal;
-            font-weight: 600;
-            text-align: center;
-            line-height: normal;
+    .stickyWrapper {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        margin: 0 -20px;
+        padding: 20px 20px 10px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
-            @include respond-to("md") {
-                font-size: 32px;
-            }
+        @include respond-to("md") {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 15px 20px 5px 20px;
         }
 
-        p {
-            color: #7E7E7E;
-            text-align: center;
-            font-size: 20px;
-            margin: 0 auto;
-            font-style: normal;
-            font-weight: 510;
-            line-height: 28px;
-            max-width: 489px;
-            @include font-medium;
+        .title {
+            padding: 0 0 0 0;
+
+            h2 {
+                color: #121212;
+                @include font-semibold;
+                font-size: 46px;
+                margin: 0 0 18px 0;
+                font-style: normal;
+                font-weight: 600;
+                text-align: center;
+                line-height: normal;
+
+                @include respond-to("md") {
+                    font-size: 32px;
+                }
+            }
+
+            p {
+                color: #7E7E7E;
+                text-align: center;
+                font-size: 20px;
+                margin: 0 auto;
+                font-style: normal;
+                font-weight: 510;
+                line-height: 28px;
+                max-width: 489px;
+                @include font-medium;
+            }
         }
     }
 
     .contentAlignment {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 30px 0;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 0;
 
         .rightAlignmentText {
-            padding-right: 90px;
+            padding-right: 0;
         }
-
 
         .switch {
             position: relative;
             display: inline-block;
-            width: 80px;
-            height: 40px;
+            width: 70px;
+            height: 34px;
+            flex-shrink: 0;
         }
 
         .switch input {
@@ -78,7 +96,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #E2E2E2;
             -webkit-transition: .4s;
             transition: .4s;
         }
@@ -86,13 +104,14 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 30px;
-            width: 30px;
+            height: 26px;
+            width: 26px;
             left: 4px;
-            bottom: 5px;
+            bottom: 4px;
             background: white;
             -webkit-transition: .4s;
             transition: .4s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         input:checked+.slider {
@@ -100,12 +119,10 @@
 
         }
 
-
-
         input:checked+.slider:before {
-            -webkit-transform: translateX(40px);
-            -ms-transform: translateX(40px);
-            transform: translateX(40px);
+            -webkit-transform: translateX(36px);
+            -ms-transform: translateX(36px);
+            transform: translateX(36px);
         }
 
         /* Rounded sliders */
@@ -117,24 +134,33 @@
             border-radius: 50%;
         }
 
-
-
         h4 {
             text-align: center;
-            font-size: 40px;
+            font-size: 20px;
             font-style: normal;
-            background: linear-gradient(180deg, #FFF 0%, #C3E5E6 100%);
+            background: #E0E0E0;
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 600;
-            line-height: normal;
-            @include font-semibold;
-            transition: all 0.5s ease-in-out;
+            font-weight: 700;
+            line-height: 1.2;
+            @include font-bold;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+            @include respond-to("md") {
+                font-size: 18px;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 16px;
+            }
 
             &.darktext {
                 background: var(--Gradient, linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%));
-                -webkit-text-fill-color: #0000;
+                -webkit-text-fill-color: transparent;
                 -webkit-background-clip: text;
                 background-clip: text;
             }
@@ -144,46 +170,62 @@
     .threeCol {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        padding: 60px 0 40px 0;
+        gap: 16px;
+        padding: 40px 0;
+
+        @include respond-to("tab") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
 
         .items {
             background: #FFFFFF;
-            border: 0.61px solid #0000000F;
-            box-shadow: 0px 2.43px 17.82px 0px #0000001F;
-            border-radius: 6px;
-            padding: 16px;
+            border: 0.61px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
 
             p {
-                font-size: 12px;
-                line-height: 16px;
-                color: #7B7B7B;
+                font-size: 14px;
+                line-height: 20px;
+                color: #666;
                 @include font-normal;
                 font-weight: 400;
+                margin: 0;
             }
 
             h3 {
-                @include font-medium;
-                font-size: 16px;
+                @include font-semibold;
+                font-size: 18px;
                 color: #121212;
                 font-style: normal;
-                font-weight: 500;
-                margin: 0 0 10px 0;
+                font-weight: 600;
+                margin: 0 0 12px 0;
             }
         }
     }
 
     .rightAlignment {
         position: relative;
+        padding-bottom: 80px; // Space for the absolute box
 
         .promptBoxRight {
             max-width: 280px;
-            width: 280px;
+            width: 90%;
             border-radius: 14px;
-            box-shadow: 0 2.932px 12.753px 0 rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             position: absolute;
             right: 20%;
-            bottom: -10%;
+            bottom: 40px;
+            z-index: 10;
 
             .body {
                 padding: 13px 12px;
