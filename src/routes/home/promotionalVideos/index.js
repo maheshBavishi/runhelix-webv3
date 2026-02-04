@@ -11,7 +11,7 @@ const videoList = [
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5a3d2ca1-87f1-4fc7-88d8-5af0cb3c79a1.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/ca758ba2-5749-408c-8ac4-d5001e32c37c.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/0dd4be4f-84b3-4f4a-9baf-d02c92c4d8c7.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8256e509-917b-4334-b8c9-51832b27c7a7.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/38a1271a-694c-47cb-99cb-3bd99450ebf5.mp4',
 ];
 export default function PromotionalVideos() {
     const videoRefs = useRef([]);
