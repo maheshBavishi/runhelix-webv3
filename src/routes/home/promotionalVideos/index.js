@@ -8,10 +8,10 @@ const Video = '/assets/video/video2.mp4';
 
 
 const videoList = [
-    Video,
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8c52d3c2-91a9-41cf-a0a6-8eb6da4ee9a3.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/d35bc6f0-5fcf-4751-b825-66ba684893d9.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/0b08b81f-576c-4479-bedd-10b5a5c1bd0f.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5a3d2ca1-87f1-4fc7-88d8-5af0cb3c79a1.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/a798c647-b764-48ae-b1af-6977ac0a7702.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/0dd4be4f-84b3-4f4a-9baf-d02c92c4d8c7.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8256e509-917b-4334-b8c9-51832b27c7a7.mp4',
 ];
 export default function PromotionalVideos() {
     const videoRefs = useRef([]);
@@ -60,8 +60,18 @@ export default function PromotionalVideos() {
                     ))}
                 </div>
                 <div className={styles.imagegrid}>
-                    <img src={SkinImage} alt="SkinImage" />
-                    <img src={SkinImage2} alt="SkinImage2" />
+                    <video playsInline
+                        preload="none"
+                        autoPlay
+                        loop
+                        muted
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/3e3e829a-f023-4120-9876-51c97ab5f109.mp4"></video>
+                    <video playsInline
+                        preload="none"
+                        autoPlay
+                        loop
+                        muted
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ca0dc05f-0d3b-4a8c-b083-daedd31d05a5.mp4"></video>
                 </div>
             </div>
         </div>
