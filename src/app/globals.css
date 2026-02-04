@@ -77,3 +77,9 @@ p:last-child {
 a {
   text-decoration: none;
 }
+
+@media (max-width: 576px) {
+  html {
+    overflow-x: hidden;
+  }
+}

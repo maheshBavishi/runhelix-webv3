@@ -20,7 +20,6 @@ export default function HomePage() {
       <AiAds />
       <HelixOrchestrationLayer />
       <HelixOrchestrationLayerMobile />
-      {/* video */}
       <>
         <MultiPlatform />
       </>
@@ -33,7 +32,6 @@ export default function HomePage() {
       <>
         <MultiPlatformDigital />
       </>
-      {/* video */}
       <InductriesServiced />
       <MarketingSection />
       <CreateProduct />

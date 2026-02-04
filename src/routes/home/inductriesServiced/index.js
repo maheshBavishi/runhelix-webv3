@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './inductriesServiced.module.scss'
-import BeautyIcon from '@/icons/beautyIcon'
+import BeautyIcon from '@/icons/beautyIcon';
+const Image1 = '/assets/images/Skincare.jpg';
 
 
 // Images for each category
@@ -94,7 +95,7 @@ export default function InductriesServiced() {
                         {leftItems.map((item) => (
                             <div
                                 key={item}
-                                className={styles.iconTextAlignment}
+                                className={`${styles.iconTextAlignment} ${selected === item ? styles.active : ''}`}
                                 onMouseEnter={() => setSelected(item)}
                             >
                                 <div className={styles.icon}>{iconsMap[item]}</div>
@@ -108,10 +109,59 @@ export default function InductriesServiced() {
                         {rightItems.map((item) => (
                             <div
                                 key={item}
-                                className={styles.iconTextAlignment}
+                                className={`${styles.iconTextAlignment} ${selected === item ? styles.active : ''}`}
                                 onMouseEnter={() => setSelected(item)}
                             >
                                 <div className={styles.icon}>{iconsMap[item]}</div>
+                                <span>{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className={styles.mobileShow}>
+                    <div className={styles.leftrightAlignment}>
+                        <div className={styles.imagebox}>
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={selected}
+                                    src={imagesMap[selected]}
+                                    alt={selected}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    onDragEnd={(e, { offset, velocity }) => {
+                                        const swipe = offset.x;
+                                        const allItems = [...leftItems, ...rightItems];
+                                        const currentIndex = allItems.indexOf(selected);
+
+                                        if (swipe < -50) {
+                                            // Swipe left -> next image
+                                            const nextIndex = (currentIndex + 1) % allItems.length;
+                                            setSelected(allItems[nextIndex]);
+                                        } else if (swipe > 50) {
+                                            // Swipe right -> previous image
+                                            const prevIndex = (currentIndex - 1 + allItems.length) % allItems.length;
+                                            setSelected(allItems[prevIndex]);
+                                        }
+                                    }}
+                                />
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                    <div className={styles.alliconText}>
+                        {[...leftItems, ...rightItems].map((item) => (
+                            <div
+                                key={item}
+                                className={`${styles.iconTextAlignment} ${selected === item ? styles.active : ''}`}
+                                onClick={() => setSelected(item)}
+                            >
+                                <div className={styles.icon}>
+                                    {iconsMap[item]}
+                                </div>
                                 <span>{item}</span>
                             </div>
                         ))}

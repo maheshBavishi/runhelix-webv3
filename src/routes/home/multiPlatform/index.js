@@ -34,21 +34,23 @@ export default function MultiPlatform() {
                 <h2>Multi-Platform UGC Product Testimonials & Reviews</h2>
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (
-                        <video
-                            src={src}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="none"
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                opacity: 1,
-                                transition: "opacity 0.5s ease",
-                                display: "block",
-                            }}
-                        />
+                        <div className={styles.items}>
+                            <video
+                                src={src}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="none"
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    opacity: 1,
+                                    transition: "opacity 0.5s ease",
+                                    display: "block",
+                                }}
+                            />
+                        </div>
                     ))}
                 </div>
             </div>

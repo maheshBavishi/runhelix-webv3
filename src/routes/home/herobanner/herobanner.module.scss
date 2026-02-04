@@ -10,6 +10,12 @@
     background-repeat: no-repeat;
     position: relative;
 
+    @include respond-to("sm") {
+        height: auto;
+        padding: 120px 0 60px 0;
+        background-position: center;
+    }
+
     .heroContainer {
         margin: 0 auto;
         max-width: calc(1030px + 40px);
@@ -19,9 +25,18 @@
     .topSpacingAlignmemnt {
         padding: 170px 0 0 0;
 
+        @include respond-to("sm") {
+            padding: 0;
+        }
+
         .buttonCenter {
             display: flex;
             justify-content: center;
+
+            @include respond-to("sm") {
+                padding: 0 0 30px 0;
+            }
+
 
             button {
                 display: flex;
@@ -38,6 +53,11 @@
                 line-height: 20px;
                 @include font-semibold;
                 background: linear-gradient(145deg, #313131 -7.15%, #181818 93.46%);
+
+                @include respond-to("sm") {
+                    padding: 10px 16px;
+                    font-size: 14px;
+                }
             }
         }
 
@@ -51,6 +71,10 @@
             max-width: 736px;
             gap: 12px;
 
+            @include respond-to("sm") {
+                padding: 0 0 30px 0;
+            }
+
             .iconText {
                 padding: 10px 18px;
                 border-radius: 100px;
@@ -58,6 +82,10 @@
                 display: flex;
                 align-items: center;
                 gap: 6px;
+
+                @include respond-to("sm") {
+                    padding: 6px 12px;
+                }
 
                 span {
                     color: rgba(18, 18, 18, 0.70);
@@ -67,6 +95,11 @@
                     line-height: normal;
                     text-transform: uppercase;
                     @include font-medium;
+
+                    @include respond-to("sm") {
+                        font-size: 11px;
+                        text-transform: inherit;
+                    }
                 }
 
                 .icon {
@@ -77,6 +110,18 @@
                     justify-content: center;
                     border-radius: 50%;
                     background: #121212;
+
+                    @include respond-to("sm") {
+                        min-width: 20px;
+                        min-height: 20px;
+                    }
+
+                    svg {
+                        @include respond-to("sm") {
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
                 }
             }
         }
@@ -86,6 +131,10 @@
 
             @include respond-to("md") {
                 padding: 0 0 40px 0;
+            }
+
+            @include respond-to("sm") {
+                padding: 0 0 30px 0;
             }
 
             span {
@@ -103,6 +152,11 @@
                     font-size: 20px;
                     padding: 0 0 20px 0;
                 }
+
+                @include respond-to("sm") {
+                    font-size: 18px;
+                    padding: 0 0 20px 0;
+                }
             }
 
             h1 {
@@ -117,6 +171,12 @@
                 @include respond-to("md") {
                     font-size: 48px;
                 }
+
+                @include respond-to("sm") {
+                    font-size: 32px;
+                    @include font-bold;
+                    font-weight: 700;
+                }
             }
         }
     }
@@ -126,6 +186,12 @@
         bottom: 50px;
         left: 0;
         width: 100%;
+
+        @include respond-to("sm") {
+            position: inherit;
+            bottom: 0;
+            left: 0;
+        }
 
         .bottomContainer {
             max-width: calc(1040px + 20px);
@@ -155,9 +221,17 @@
                     justify-content: center;
                 }
 
+                @include respond-to("sm") {
+                    gap: 16px;
+                }
+
                 img {
                     display: block;
                     cursor: pointer;
+
+                    @include respond-to("sm") {
+                        max-width: 80px;
+                    }
                 }
             }
         }

@@ -9,6 +9,10 @@
     width: 100%;
     padding: 100px 0;
 
+    @include respond-to("sm") {
+        padding: 60px 0;
+    }
+
     .buttonCenter {
         display: flex;
         justify-content: center;
@@ -62,6 +66,10 @@
             line-height: normal;
             @include font-semibold;
             margin: 0 0 40px 0;
+
+            @include respond-to("sm") {
+                font-size: 28px;
+            }
 
             span {
                 color: #29A6B4;

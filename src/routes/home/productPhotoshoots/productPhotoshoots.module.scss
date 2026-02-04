@@ -6,6 +6,16 @@
     padding: 80px 0 0 0;
     position: relative;
 
+    @include respond-to("sm") {
+        padding: 60px 0 0 0;
+    }
+
+    :global(.container-lg) {
+        @include respond-to("sm") {
+            padding: 0;
+        }
+    }
+
     &::before {
         position: absolute;
         bottom: 0;
@@ -14,6 +24,10 @@
         height: 400px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.26) 38.4%, rgba(255, 255, 255, 0.45) 66.91%, #FFF 100%);
         content: '';
+
+        @include respond-to("sm") {
+            height: 300px;
+        }
     }
 
     h2 {
@@ -25,6 +39,11 @@
         line-height: normal;
         margin: 0 0 40px 0;
         @include font-semibold;
+
+        @include respond-to("sm") {
+            font-size: 28px;
+            padding: 0 20px;
+        }
     }
 
     .grid {
@@ -32,8 +51,22 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
 
+        @include respond-to("sm") {
+            display: flex;
+            overflow: auto;
+            padding: 0 10px;
+            gap: 10px;
+            scrollbar-width: none;
+        }
+
         .items {
             overflow: hidden;
+
+            @include respond-to("sm") {
+                max-width: 260px;
+                min-width: 260px;
+                width: 260px;
+            }
 
             video {
                 width: 100%;

@@ -38,9 +38,6 @@ export default function HelixOrchestrationLayer() {
         offset: ['start start', 'end end'],
     })
 
-    /* ---------------- SECTION ---------------- */
-    const sectionOpacity = useTransform(scrollYProgress, [0, 0.09], [0, 1])
-
     /* ---------------- SYNCHRONIZED SCROLL PROGRESS ---------------- */
     const activeProgress = useSpring(scrollYProgress, { stiffness: 90, damping: 22 })
 
@@ -101,26 +98,37 @@ export default function HelixOrchestrationLayer() {
         <div ref={containerRef} className={styles.helixOrchestrationLayer} id='workflow'>
             <motion.div
                 className={styles.stickyWrap}
-                style={{ opacity: sectionOpacity }}
             >
                 <div className="container-lg" style={{ width: '100%' }}>
 
                     {/* TITLE */}
-                    <motion.div className={styles.title}>
+                    <motion.div
+                        className={styles.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                         <h2>Helix Orchestration Layer</h2>
                         <p>
                             Watch as helix’s AI agents bring your product videos & images alive
                         </p>
                     </motion.div>
 
-                    <div className={styles.contentAlignment}>
+                    <motion.div
+                        className={styles.contentAlignment}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
                         <h4 className={classNames(!isSwitchActive && styles.darktext)}>From Prompt</h4>
                         <label className={styles.switch}>
                             <input ref={switchRef} type="checkbox" checked={isSwitchActive} readOnly />
                             <span className={classNames(styles.slider, styles.round)} />
                         </label>
                         <h4 className={classNames(styles.rightAlignmentText, isSwitchActive && styles.darktext)}>To Output</h4>
-                    </div>
+                    </motion.div>
 
                     <div className={styles.grid}>
 

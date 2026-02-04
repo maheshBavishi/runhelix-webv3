@@ -12,11 +12,20 @@
         padding: 60px 20px;
     }
 
+    @include respond-to("sm") {
+        padding: 40px 16px;
+        border-radius: 12px;
+    }
+
     .image {
         position: absolute;
         right: 0;
         top: 0;
         max-width: 250px;
+
+        @include respond-to("sm") {
+            display: none;
+        }
 
         img {
             width: 100%;
@@ -29,6 +38,10 @@
         left: 0;
         top: 0;
         max-width: 250px;
+
+        @include respond-to("sm") {
+            display: none;
+        }
 
         img {
             width: 100%;
@@ -62,6 +75,11 @@
                 z-index: 9;
             }
 
+            @include respond-to("sm") {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .items {
                 border-radius: 12px;
                 border: 1px solid rgba(255, 255, 255, 0.17);
@@ -70,6 +88,10 @@
                 padding: 24px 18px;
                 position: relative;
                 overflow: hidden;
+
+                @include respond-to("sm") {
+                    padding: 16px;
+                }
 
                 &:last-child {
                     button {
@@ -121,6 +143,12 @@
                     line-height: 28px;
                     @include font-medium;
                     margin: 16px 0 0 0;
+
+                    @include respond-to("sm") {
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin: 12px 0 0 0;
+                    }
                 }
             }
         }
@@ -144,12 +172,21 @@
             @include respond-to("md") {
                 font-size: 32px;
             }
+
+            @include respond-to("sm") {
+                font-size: 24px;
+                margin: 0 0 20px 0;
+            }
         }
 
         .buttonCenter {
             display: flex;
             justify-content: center;
             padding: 0 0 40px 0;
+
+            @include respond-to("sm") {
+                padding: 0 0 20px 0;
+            }
 
             button {
                 color: #FFF;
@@ -163,6 +200,11 @@
                 border: 1px solid rgba(255, 255, 255, 0.17);
                 background: rgba(255, 255, 255, 0.05);
                 padding: 12px 18px;
+
+                @include respond-to("sm") {
+                    font-size: 14px;
+                    padding: 12px 16px;
+                }
             }
         }
     }
