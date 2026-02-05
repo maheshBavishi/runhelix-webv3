@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
 const Video3 = '/assets/video/video3.mp4';
 const imageList = [
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/6dc6f8c5-43c5-4687-bce4-c1c743d2db43_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/78b405ff-1aaa-46fa-87f9-4a68bc708284_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ea44940a-e3d6-46ca-a00a-7fad5fd84e1f_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/d267b4f2-5b6f-4b9e-b596-6aa698ba9bf0_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ec01aa4f-8582-48a9-9d0a-18e68074c662_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/17d84221-bfcf-4a15-98da-cc2014cd3dd8_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3e524dc8-7803-483a-8e88-175b153e9cff_UGC_image.png",
