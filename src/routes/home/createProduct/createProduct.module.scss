@@ -253,7 +253,10 @@
                     @include font-semibold;
 
                     span {
-                        color: #05AAE5;
+                        background: var(--Gradient, linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%));
+                        -webkit-text-fill-color: #0000;
+                        -webkit-background-clip: text;
+                        background-clip: text;
                     }
                 }
             }

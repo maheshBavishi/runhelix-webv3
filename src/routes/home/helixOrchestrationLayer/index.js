@@ -143,7 +143,7 @@ export default function HelixOrchestrationLayer() {
                             }}
                         >
                             <div className={styles.leftImage}>
-                                <img src={LeftImage} alt="LeftImage" />
+                                <img src='https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/dji-mavic-3-pro_b4eu.jpg' alt="LeftImage" />
                             </div>
 
                             <div className={styles.promptBox}>
@@ -153,7 +153,7 @@ export default function HelixOrchestrationLayer() {
                                 </div>
                                 <div className={styles.body}>
                                     <p>
-                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.
+                                        Create a high-quality UGC-style video ad for a new compact camera drone. The video should feature a real person (not an actor) unboxing and demonstrating the drone in a natural, everyday setting.
                                     </p>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@ export default function HelixOrchestrationLayer() {
                             </div>
 
                             <div className={styles.rightImage}>
-                                <img src={RightImage} alt="RightImage" />
+                                <video src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/right-video.mp4" autoPlay loop muted playsInline></video>
                             </div>
 
                             <div className={styles.promptBoxRight}>
@@ -218,8 +218,8 @@ export default function HelixOrchestrationLayer() {
                                 </div>
                                 <div className={styles.body}>
                                     <p>
-                                        Create a high-end SaaS landing page section showcasing AI-generated UGC video ads that are already converting millions in revenue.The section should have a dark, modern background with a subtle gradient and soft
-                                        shadows. At the top center, place a bold headline that reads
+                                        A real person records a casual phone video showing a compact camera drone at home and outdoors. The person unfolds the drone, turns it on, and flies it briefly. Natural lighting, handheld camera, slightly imperfect movements. The person speaks naturally, saying the drone is easy to fly and the camera looks surprisingly good.
+                                        Authentic UGC style, not an ad, realistic and human.
                                     </p>
                                 </div>
                             </div>
