@@ -6,8 +6,9 @@ import styles from './aiAds.module.scss';
 import Image from 'next/image';
 import SimpleInterface from '../simpleInterface';
 
-const AiAdsImage = '/assets/images/left-image.png';
-const AiAdsVideo = '/assets/video/video2.mp4';
+const AiAdsImage = '/assets/images/left-image-glass.webp';
+const TiktokFrameImage = '/assets/images/tiktok-frame.png';
+const AiAdsVideo = '/assets/video/glass-video.mp4';
 const HelixIcon = '/assets/icons/helix.svg';
 const TilktokIcon = '/assets/icons/tilktok.svg';
 const InstagramIcon = '/assets/icons/instagram.svg';
@@ -206,6 +207,9 @@ export default function AiAds() {
                                         muted
                                         playsInline
                                     />
+                                    <div className={styles.frame}>
+                                        <img src={TiktokFrameImage} alt="TiktokFrameImage" />
+                                    </div>
                                 </div>
 
                                 {/* Slider Handle */}

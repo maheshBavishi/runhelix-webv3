@@ -5,7 +5,7 @@ import styles from './multiPlatformDigital.module.scss';
 const Video4 = '/assets/video/video4.mp4';
 
 const videoList = [
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/188e86eb-cd75-4877-b832-2d7b3a886b9e.mp4",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ceb29008-f18f-47a0-8d90-dbdef57dca4a.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/fba3f9fc-5a2b-4985-9269-42b0f0980589.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/be2c6e16-c55b-43cf-b167-3456e8defcb6.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5366b959-1cc7-40f3-86a2-f4006019492e.mp4",

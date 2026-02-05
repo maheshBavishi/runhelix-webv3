@@ -33,14 +33,14 @@
 
 
     h2 {
-        color: #121212;
+        color: #898989;
         font-size: 36px;
         font-style: normal;
         text-align: center;
-        font-weight: 400;
+        font-weight: 500;
         line-height: normal;
         margin: 0 0 40px 0;
-        @include font-normal;
+        @include font-medium;
 
         @include respond-to("sm") {
             font-size: 28px;
@@ -49,6 +49,7 @@
 
         span {
             @include font-semibold;
+            color: #121212;
             font-weight: 600;
         }
     }
