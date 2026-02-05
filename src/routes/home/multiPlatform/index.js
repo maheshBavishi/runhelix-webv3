@@ -32,7 +32,7 @@ export default function MultiPlatform() {
     return (
         <div className={styles.multiPlatform}>
             <div className="container-lg">
-                <h2>Multi-Platform UGC Product Testimonials & Reviews</h2>
+                <h2>Multi-Platform <span>UGC Product Testimonials</span> & Reviews</h2>
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (
                         <div className={styles.items}>

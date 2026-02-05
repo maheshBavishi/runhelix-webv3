@@ -30,7 +30,7 @@ export default function PromotionalVideos() {
     return (
         <div className={styles.promotionalVideos}>
             <div className='container-lg'>
-                <h2>Promotional Videos For Website & Product Pages</h2>
+                <h2>For Website Promotional Videos For Product Pages</h2>
 
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (

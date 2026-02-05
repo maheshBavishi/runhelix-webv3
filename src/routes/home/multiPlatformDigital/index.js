@@ -19,7 +19,7 @@ export default function MultiPlatformDigital() {
     return (
         <div className={styles.multiPlatformDigital}>
             <div className='container-lg'>
-                <h2>Multi-Platform Digital Ad Creatives That Convert</h2>
+                <h2>Multi-Platform <span> Digital Ad Creatives </span> That Convert</h2>
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (
                         <motion.div

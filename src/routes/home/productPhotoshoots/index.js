@@ -31,7 +31,7 @@ export default function ProductPhotoshoots() {
     return (
         <div className={styles.productPhotoshoots}>
             <div className='container-lg'>
-                <h2>Product Photoshoots For Product Pages, Crowdfunding, & Decks</h2>
+                <h2>For Product Pages <span> Product Photoshoots </span> For Decks</h2>
                 <div className={styles.grid}>
                     {videoList.map((src, index) => (
                         <motion.div

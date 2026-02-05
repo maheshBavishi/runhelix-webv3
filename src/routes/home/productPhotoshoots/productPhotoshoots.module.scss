@@ -30,19 +30,25 @@
         }
     }
 
+
     h2 {
         color: #121212;
         font-size: 36px;
         font-style: normal;
         text-align: center;
-        font-weight: 590;
+        font-weight: 400;
         line-height: normal;
         margin: 0 0 40px 0;
-        @include font-semibold;
+        @include font-normal;
 
         @include respond-to("sm") {
             font-size: 28px;
             padding: 0 20px;
+        }
+
+        span {
+            @include font-semibold;
+            font-weight: 600;
         }
     }
 
