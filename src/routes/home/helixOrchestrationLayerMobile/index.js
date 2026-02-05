@@ -23,11 +23,11 @@ export default function HelixOrchestrationLayerMobile() {
     }, [isInView]);
 
     const cardItems = [
+        { title: 'Concept Agent', desc: 'Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning.' },
         { title: 'Script Agent', desc: 'Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven.' },
         { title: 'Visual Director Agent', desc: 'Defines visual style, creative direction, and motion flow. Ensures consistency in pacing, transitions, and overall visual experience.' },
         { title: 'QA Agent', desc: 'Performs quality and compliance checks across brand, visuals, audio, and timing. Identifies issues early to ensure a polished final output.' },
         { title: 'Generation Agent', desc: 'Transforms scripts and creative directions into final media assets. Focuses on consistency, efficiency, and performance-ready execution.' },
-        { title: 'Concept Agent', desc: 'Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning.' },
         { title: 'Performance Agent', desc: 'Analyzes engagement and performance data to identify what works best. Uses insights to continuously optimize future content and conversions.' }
     ];
 

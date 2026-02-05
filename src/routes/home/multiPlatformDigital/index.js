@@ -2,7 +2,11 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './multiPlatformDigital.module.scss';
-const Video4 = '/assets/video/video4.mp4';
+const TiktokFrameImage = '/assets/images/tiktok-frame.png';
+const LinkdinImage = '/assets/images/linkdin.png';
+const InstagramImage = '/assets/images/Instagram.png';
+const YoutubeImage = '/assets/images/youtube.png';
+const frames = [TiktokFrameImage, LinkdinImage, InstagramImage, YoutubeImage];
 
 const videoList = [
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ceb29008-f18f-47a0-8d90-dbdef57dca4a.mp4",
@@ -14,6 +18,7 @@ const videoList = [
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/b3f0f9c8-11a1-4382-aa38-3fcf0ad1e0ab.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/a4803275-c9e9-42ad-bcab-7793bc27e612.mp4",
 ];
+
 export default function MultiPlatformDigital() {
     const videoRefs = useRef([]);
     return (
@@ -29,6 +34,15 @@ export default function MultiPlatformDigital() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
+                            {index < 4 && (
+                                <div className={styles.frame}>
+                                    <img
+                                        src={frames[index]}
+                                        alt="Platform Frame"
+
+                                    />
+                                </div>
+                            )}
                             <video
                                 playsInline
                                 preload="none"

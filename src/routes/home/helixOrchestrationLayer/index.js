@@ -178,18 +178,17 @@ export default function HelixOrchestrationLayer() {
 
                             <div className={styles.centerBoxDesign}>
                                 <div className={styles.single}>
-                                    <Agent style={agent1} title="Script Agent" desc="Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven." />
+                                    <Agent style={agent5} title="Concept Agent" desc="Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning." />
                                     <Agent style={agent2} title="QA Agent" desc="Performs quality and compliance checks across brand, visuals, audio, and timing. Identifies issues early to ensure a polished final output." />
                                 </div>
-
                                 <div className={styles.single}>
+                                    <Agent style={agent1} title="Script Agent" desc="Creates context-aware, platform-optimized scripts aligned with campaign goals and brand tone. Ensures the narrative is clear, engaging, and purpose-driven." />
                                     <Agent style={agent3} title="Visual Director Agent" desc="Defines visual style, creative direction, and motion flow. Ensures consistency in pacing, transitions, and overall visual experience." />
-                                    <Agent style={agent4} title="Generation Agent" desc="Transforms scripts and creative directions into final media assets. Focuses on consistency, efficiency, and performance-ready execution." />
                                 </div>
                             </div>
 
                             <div className={styles.bottomContentAlignment}>
-                                <Agent style={agent5} title="Concept Agent" desc="Analyzes product DNA, target audience, and market context to understand the product deeply. Based on this insight, it defines the core concept, messaging angle, and strategic positioning." />
+                                <Agent style={agent4} title="Generation Agent" desc="Transforms scripts and creative directions into final media assets. Focuses on consistency, efficiency, and performance-ready execution." />
                                 <Agent style={agent6} title="Performance Agent" desc="Analyzes engagement and performance data to identify what works best. Uses insights to continuously optimize future content and conversions." />
                             </div>
                         </motion.div>
