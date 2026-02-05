@@ -202,7 +202,7 @@
             }
 
             .videobox {
-                max-width: 376px;
+                max-width: 326px;
                 border-radius: 20px;
                 z-index: 9;
                 border: 14px solid rgba(255, 255, 255, 0.05);
@@ -221,7 +221,7 @@
 
                     p {
                         color: #FFF;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-style: normal;
                         font-weight: 500;
                         line-height: normal;
@@ -230,7 +230,7 @@
                 }
 
                 .poster {
-                    img {
+                    video {
                         display: block;
                         width: 100%;
                         border-radius: 10px;

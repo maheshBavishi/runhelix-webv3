@@ -3,15 +3,15 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
 const Video3 = '/assets/video/video3.mp4';
-const videoList = [
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/b8ba17de-5ccd-4d22-9ca9-d296120ddac1.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/277584b7-308e-455b-a220-e3012565cbce.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5a3d2ca1-87f1-4fc7-88d8-5af0cb3c79a1.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/23a509b7-0840-49c7-8699-1cc330340267.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/8304c143-4baa-4bd8-b605-210089b58db5.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ceb29008-f18f-47a0-8d90-dbdef57dca4a.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/be2c6e16-c55b-43cf-b167-3456e8defcb6.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/f13f9369-2ab8-43c9-b2c5-1ab9afd72fdf.mp4',
+const imageList = [
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/6dc6f8c5-43c5-4687-bce4-c1c743d2db43_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/78b405ff-1aaa-46fa-87f9-4a68bc708284_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ec01aa4f-8582-48a9-9d0a-18e68074c662_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/17d84221-bfcf-4a15-98da-cc2014cd3dd8_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3e524dc8-7803-483a-8e88-175b153e9cff_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/315954c5-177e-4e63-999d-c885be8f77e3_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/9a8cb2ee-41d3-4f27-9805-25199def7edf_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/9b79e6b9-f206-4bf1-8ec5-6696d35f8c7b_UGC_image.png",
 ];
 
 export default function ProductPhotoshoots() {
@@ -33,7 +33,7 @@ export default function ProductPhotoshoots() {
             <div className='container-lg'>
                 <h2>For Product Pages <span> Product Photoshoots </span> For Decks</h2>
                 <div className={styles.grid}>
-                    {videoList.map((src, index) => (
+                    {imageList.map((src, index) => (
                         <motion.div
 
                             key={index}
@@ -43,13 +43,10 @@ export default function ProductPhotoshoots() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
 
-                            <video
-                                playsInline
+                            <img
                                 preload="none"
                                 src={src}
-                                autoPlay
-                                loop
-                                muted
+
                                 style={{
                                     width: "100%",
                                     height: "100%",

@@ -96,7 +96,7 @@
         .bottomContentAlignment {
             display: flex;
             gap: 160px;
-            margin-left: 15%;
+            margin-left: 11%;
 
             .textWhiteBox {
                 max-width: 164px;
@@ -136,7 +136,7 @@
             justify-content: center;
             max-width: 394px;
             gap: 50px;
-            margin-left: 34%;
+            margin-left: 26%;
 
             .single:first-child {
                 padding: 20px 0 0 0;
@@ -188,7 +188,7 @@
             width: 260px;
             position: absolute;
             top: 0;
-            right: -80%;
+            right: -60%;
             border-radius: 14px;
             border: 0.733px solid rgba(0, 0, 0, 0.06);
             background: #F2F2F2;
@@ -407,5 +407,5 @@
     width: 100%;
     height: 100%;
     top: 15%;
-    left: 24%;
+    left: 20%;
 }

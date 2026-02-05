@@ -425,11 +425,11 @@ export default function CreateProduct() {
                                 ) : (
                                     <>
                                         <div className={styles.poster}>
-                                            <img src={PosterImage} alt='PosterImage' />
+                                            <video src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/videonew.mp4" autoPlay muted loop playsInline />
                                         </div>
                                         {!generatedVideoUrl && <div className={styles.textBox}>
                                             <p>
-                                                Real creator. Real setting. Handheld phone shots with casual movement and natural lighting — true UGC authenticity.
+                                                Natural UGC-style video in an everyday setting with a realistic creator. Handheld phone camera feel, casual movements, authentic lighting
                                             </p>
                                         </div>}
                                     </>
