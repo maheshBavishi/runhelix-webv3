@@ -216,7 +216,9 @@ export default function AiAds() {
                                 <div
                                     className={styles.handle}
                                     style={{ left: `${sliderPosition}%` }}
-                                />
+                                >
+                                    <div className={styles.lineGlow} />
+                                </div>
                             </div>
                         </div>
                     </motion.div>

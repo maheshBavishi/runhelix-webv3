@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
 const Video3 = '/assets/video/video3.mp4';
 const imageList = [
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ea44940a-e3d6-46ca-a00a-7fad5fd84e1f_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3bb839f3-b2d9-4a84-bac8-2a9a55a84c18_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/d267b4f2-5b6f-4b9e-b596-6aa698ba9bf0_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ec01aa4f-8582-48a9-9d0a-18e68074c662_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/797925b1-fbf8-45c0-9b4d-a67ed558da58_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/17d84221-bfcf-4a15-98da-cc2014cd3dd8_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3e524dc8-7803-483a-8e88-175b153e9cff_UGC_image.png",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/315954c5-177e-4e63-999d-c885be8f77e3_UGC_image.png",

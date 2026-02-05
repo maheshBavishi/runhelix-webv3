@@ -218,8 +218,7 @@ export default function HelixOrchestrationLayer() {
                                 </div>
                                 <div className={styles.body}>
                                     <p>
-                                        A real person records a casual phone video showing a compact camera drone at home and outdoors. The person unfolds the drone, turns it on, and flies it briefly. Natural lighting, handheld camera, slightly imperfect movements. The person speaks naturally, saying the drone is easy to fly and the camera looks surprisingly good.
-                                        Authentic UGC style, not an ad, realistic and human.
+                                        Create a high-quality UGC-style video ad for a new compact camera drone. The video should feature a real person (not an actor) unboxing and demonstrating the drone in a natural, everyday setting.
                                     </p>
                                 </div>
                             </div>
