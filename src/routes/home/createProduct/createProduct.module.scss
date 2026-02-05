@@ -6,6 +6,10 @@
     background: #121212;
     padding: 80px 0;
 
+    @include respond-to("sm") {
+        padding: 60px 0;
+    }
+
     .bottomAlign {
         position: absolute;
         left: 0;
@@ -19,6 +23,10 @@
 
     .title {
         padding: 0 0 50px 0;
+
+        @include respond-to("sm") {
+            padding: 0 0 20px 0;
+        }
 
         h2 {
             color: #FFF;
@@ -41,6 +49,10 @@
             gap: 14px;
             justify-content: center;
 
+            @include respond-to("sm") {
+                display: none;
+            }
+
             span {
                 color: #FFF;
                 text-align: center;
@@ -60,6 +72,11 @@
         background: #0E0E10;
         padding: 80px 40px;
 
+        @include respond-to("sm") {
+            padding: 24px 10px;
+            border-radius: 12px;
+        }
+
         .boxCenter {
             max-width: 1020px;
             margin: 0 auto;
@@ -72,6 +89,11 @@
                 border: 1px solid rgba(255, 255, 255, 0.12);
                 background: rgba(18, 18, 18, 0.40);
                 backdrop-filter: blur(230.10000610351562px);
+
+                @include respond-to("sm") {
+                    padding: 16px;
+                    border-radius: 12px;
+                }
 
                 textarea {
                     border: none;
@@ -169,12 +191,17 @@
                 z-index: 9;
                 justify-content: center;
 
+                @include respond-to("sm") {
+                    padding: 20px 0;
+                }
+
                 .buttonGroup {
                     border-radius: 1000px;
                     border: 1px solid rgba(18, 18, 18, 0.04);
                     background: rgba(148, 148, 148, 0.16);
                     backdrop-filter: blur(56px);
                     padding: 6px;
+
 
                     button {
                         padding: 12px 40px;
@@ -189,6 +216,11 @@
                         background: transparent;
                         border-radius: 99px;
                         border: none;
+
+                        @include respond-to("sm") {
+                            padding: 10px 26px;
+                            font-size: 14px;
+                        }
 
                         &.active {
                             background: var(--3, linear-gradient(90deg, #29A6B4 0%, #9ED2C3 100%));
@@ -241,6 +273,10 @@
             .subtitle {
                 padding: 0 0 40px 0;
 
+                @include respond-to("sm") {
+                    padding: 0 0 24px 0;
+                }
+
                 h2 {
                     color: #FFF;
                     text-align: center;
@@ -251,6 +287,10 @@
                     max-width: 710px;
                     margin: 0 auto;
                     @include font-semibold;
+
+                    @include respond-to("sm") {
+                        font-size: 28px;
+                    }
 
                     span {
                         background: var(--Gradient, linear-gradient(90deg, #29a6b4 0%, #9ed2c3 100%));

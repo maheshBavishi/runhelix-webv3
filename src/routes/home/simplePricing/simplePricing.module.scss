@@ -6,6 +6,10 @@
     padding: 80px 0;
     scroll-margin-top: 50px;
 
+    @include respond-to("sm") {
+        padding: 60px 0;
+    }
+
     .title {
         padding: 0 0 16px 0;
 
@@ -135,6 +139,8 @@
 
         @include respond-to("sm") {
             grid-template-columns: repeat(1, 1fr);
+            padding: 20px 0;
+            gap: 20px;
         }
 
 
@@ -148,6 +154,11 @@
             flex-direction: column;
             gap: 32px;
             justify-content: space-between;
+
+            @include respond-to("sm") {
+                padding: 16px;
+                border-radius: 16px;
+            }
 
             &:nth-child(2) {
                 border-radius: 24px;
@@ -405,6 +416,11 @@
                         margin: 0 0 4px 0;
                         line-height: normal;
                         @include font-semibold;
+
+                        @include respond-to("sm") {
+                            font-size: 20px;
+                            margin: 0 0 8px 0;
+                        }
                     }
 
                     p {
@@ -415,6 +431,10 @@
                         line-height: normal;
                         margin: 0 0 24px 0;
                         @include font-normal;
+
+                        @include respond-to("sm") {
+                            font-size: 16px;
+                        }
                     }
 
                     h4 {
@@ -445,12 +465,21 @@
         backdrop-filter: blur(58px);
         padding: 50px 24px;
 
+        @include respond-to("sm") {
+            padding: 40px 16px;
+            border-radius: 16px;
+        }
+
         .agencyIntegrationHeader {
             padding: 0 0 32px 0;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 16px;
+
+            @include respond-to("sm") {
+                padding: 0 0 40px 0;
+            }
 
             img {
                 display: block;
@@ -464,6 +493,10 @@
                 font-weight: 700;
                 line-height: normal;
                 @include font-bold;
+
+                @include respond-to("sm") {
+                    font-size: 20px;
+                }
             }
         }
 
@@ -484,6 +517,17 @@
                 align-items: center;
                 gap: 10px;
 
+                @include respond-to("sm") {
+                    padding: 10px 14px;
+                }
+
+                @include respond-to("sm") {
+                    svg {
+                        min-width: 20px;
+                        min-height: 20px;
+                    }
+                }
+
                 span {
                     display: block;
                     position: relative;
@@ -495,6 +539,11 @@
                     line-height: var(--line-height-22_54, 22.54px);
                     letter-spacing: var(--letter-spacing--0_48, -0.476px);
                     @include font-medium;
+
+                    @include respond-to("sm") {
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
                 }
             }
         }
