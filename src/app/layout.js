@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import '../scss/main.scss';
 import localFont from 'next/font/local';
+import InspectProtection from "@/components/InspectProtection";
 
 const sfProText = localFont({
   src: [
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={sfProText.variable}>
+        <InspectProtection />
         <Header />
         {children}
         <Footer />
