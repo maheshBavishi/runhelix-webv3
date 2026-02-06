@@ -8,10 +8,10 @@ const Video = '/assets/video/video2.mp4';
 
 
 const videoList = [
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5a3d2ca1-87f1-4fc7-88d8-5af0cb3c79a1.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/ca758ba2-5749-408c-8ac4-d5001e32c37c.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/0dd4be4f-84b3-4f4a-9baf-d02c92c4d8c7.mp4',
-    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/38a1271a-694c-47cb-99cb-3bd99450ebf5.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/c167208f-16a6-4d78-894c-837f8a43dcc0.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5921fae9-1084-417e-8089-ef66aeb5b9dc.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/f631aba2-242f-4e7a-ad7d-eacfab71315b.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/e3240607-4d29-4595-9692-d5e1b0c1f4ca.mp4',
 ];
 export default function PromotionalVideos() {
     const videoRefs = useRef([]);
@@ -65,13 +65,13 @@ export default function PromotionalVideos() {
                         autoPlay
                         loop
                         muted
-                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/0adc4b69-d9f8-40bf-b3e0-80f89548bf27.mp4"></video>
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/819d39d1-230d-476c-a6db-a30cd3577e0a.mp4#t=0,7.5"></video>
                     <video playsInline
                         preload="none"
                         autoPlay
                         loop
                         muted
-                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/51bf38f3-70dd-4ec2-ad5d-f07e47607580.mp4"></video>
+                        src="https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/1fbdf5b4-e647-458d-84e3-1f2929d4578e.mp4#t=0,7.5"></video>
                 </div>
             </div>
         </div>

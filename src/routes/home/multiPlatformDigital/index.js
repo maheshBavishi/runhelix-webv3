@@ -10,7 +10,7 @@ const frames = [TiktokFrameImage, LinkdinImage, InstagramImage, YoutubeImage];
 
 const videoList = [
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/ceb29008-f18f-47a0-8d90-dbdef57dca4a.mp4",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/fba3f9fc-5a2b-4985-9269-42b0f0980589.mp4",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/794ea989-dc02-41b9-bd88-52f683342c99.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/2c159a36-087e-45fc-8b3b-d50b0d6d3140.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5366b959-1cc7-40f3-86a2-f4006019492e.mp4",
     "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/cd9c13b1-9623-4419-bdde-6e1a9e6c17fd.mp4",

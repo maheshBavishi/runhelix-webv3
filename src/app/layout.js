@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={sfProText.variable}>
-        <InspectProtection />
+        {/* <InspectProtection /> */}
         <Header />
         {children}
         <Footer />
