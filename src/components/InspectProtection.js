@@ -54,7 +54,6 @@ export default function InspectProtection() {
         // Debugger trick to pause if DevTools is opened
         const devToolsInterval = setInterval(() => {
             const startTime = performance.now();
-            debugger;
             const endTime = performance.now();
             if (endTime - startTime > 100) {
                 // DevTools likely open
