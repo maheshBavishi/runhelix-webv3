@@ -213,6 +213,7 @@
 
             &:hover {
                 border: 4px solid #39acb6;
+                transform: translateY(-5px);
 
                 .firstList {
                     .buttonDesign {
@@ -229,6 +230,18 @@
                 border: 10px solid #FFF;
                 background: #121212;
                 box-shadow: 0 0 27.8px 0 rgba(0, 0, 0, 0.14);
+
+                &:hover {
+
+                    .firstList {
+                        .buttonDesign {
+                            button {
+                                color: #121212;
+                                background: #fff;
+                            }
+                        }
+                    }
+                }
 
                 .firstList {
                     .textstyle {
@@ -467,7 +480,6 @@
                         @include font-medium;
                         border-radius: 58.95px;
                         border: none;
-                        transition: .3s ease-in-out;
                         cursor: pointer;
                         background: var(--Grays-Grey-2, #F1F2F2);
                         padding: 14px;
@@ -525,6 +537,13 @@
         background: #FFF;
         backdrop-filter: blur(58px);
         padding: 50px 24px;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            border: 4px solid #39acb6;
+            transform: translateY(-5px);
+
+        }
 
         .agencyIntegrationHeader {
             display: flex;
