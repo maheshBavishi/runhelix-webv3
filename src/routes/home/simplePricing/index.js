@@ -9,7 +9,7 @@ import Tooltip from '@/components/Tooltip';
 import CreditUsageContent from './CreditUsageContent';
 
 const StartIcon = '/assets/icons/start.svg';
-const ScaleIcon = '/assets/icons/Scale.svg';
+const ScaleIcon = '/assets/icons/logo-primary.svg';
 const LogoIcon = '/assets/icons/logo-primary.svg';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -140,7 +140,7 @@ export default function SimplePricing() {
     let planParam = 'Start';
     if (planName.toLowerCase().includes('scale')) planParam = 'Scale';
     if (planName.toLowerCase().includes('agency')) planParam = 'Agency';
-    
+
     // Redirect to the platform app with query params in a new tab
     window.open(`https://platform.runhelix.ai/pricing?plan=${planParam}&billing=${billingCycle}`, '_blank');
   };
@@ -168,10 +168,10 @@ export default function SimplePricing() {
               <span className={classNames(styles.slider, styles.round)}></span>
             </label>
 
-             <div className={styles.yearlyLabel}>
+            <div className={styles.yearlyLabel}>
               <span>Yearly Billing</span>
               <span className={styles.saveBadge}>SAVE 20%</span>
-             </div>
+            </div>
           </div>
         </div>
 
@@ -206,10 +206,10 @@ export default function SimplePricing() {
                         {plan.name.toLowerCase().includes('start')
                           ? 'Get Started'
                           : plan.name.toLowerCase().includes('scale')
-                          ? 'Choose Scale'
-                          : plan.name.toLowerCase().includes('agency')
-                          ? 'Choose Agency'
-                          : plan.cta_text || 'Subscribe'}
+                            ? 'Choose Scale'
+                            : plan.name.toLowerCase().includes('agency')
+                              ? 'Choose Agency'
+                              : plan.cta_text || 'Subscribe'}
                       </button>
                     </div>
                     <div className={styles.allListAlignment}>
@@ -233,20 +233,26 @@ export default function SimplePricing() {
 
                   <div className={styles.lastBox}>
                     <div className={styles.cardheader} >
-                    {meta.savings.type === 'complex' ? (
-                       <div className={styles.agencySavingsHeader}>
-                          <span className={styles.savingsLabel}>Monthly Savings</span>
-                          <span className={styles.savingsAmount}>{meta.savings.amount} <span className={styles.sub}>{meta.savings.subAmount}</span></span>
+                      {meta.savings.type === 'complex' ? (
+                        <div className={styles.agencySavingsHeader}>
+                          <div className={styles.lastAlign}>
+                            <h4>
+                              Monthly Savings
+                            </h4>
+                            <h5>
+                              {meta.savings.amount} <sub>{meta.savings.subAmount}</sub>
+                            </h5>
+                          </div>
                           <span className={styles.savingsNote}>{meta.savings.note}</span>
-                       </div>
-                    ) : (
-                      <>
-                        <h4>Monthly Savings</h4>
-                        <h5 style={{ fontSize: '16px', fontWeight: '700', }}>
-                          {meta.savings.amount || meta.savingsAmount} <sub style={{ fontSize: '12px', fontWeight: '400', bottom: '0' }}>/ month</sub>
-                        </h5>
-                      </>
-                    )}
+                        </div>
+                      ) : (
+                        <>
+                          <h4>Monthly Savings</h4>
+                          <h5 style={{ fontSize: '16px', fontWeight: '700', }}>
+                            {meta.savings.amount || meta.savingsAmount} <sub style={{ fontSize: '12px', fontWeight: '400', bottom: '0' }}>/ month</sub>
+                          </h5>
+                        </>
+                      )}
                     </div>
 
                     {meta.savings.type === 'complex' ? (

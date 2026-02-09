@@ -20,11 +20,13 @@
         left: 0;
         height: 100%;
         background-repeat: no-repeat;
-        background-position: center center;
-        background: url('/assets/images/footer-layer1.png'), #0E0E10;
+        background-position: bottom bottom;
+        background-size: cover;
+        background-image: url('/assets/images/footer-layer1.png');
+        background-color: #0e0e10;
 
         @include respond-to("sm") {
-            height: 80%;
+            height: 40%;
             background-position: bottom bottom;
         }
 
