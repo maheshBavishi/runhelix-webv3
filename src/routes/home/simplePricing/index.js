@@ -144,7 +144,7 @@ export default function SimplePricing() {
     // Redirect to the platform app with query params in a new tab
     window.open(`https://platform.runhelix.ai/pricing?plan=${planParam}&billing=${billingCycle}`, '_blank');
   };
-
+  console.log("Asasasasas", visiblePlans)
   return (
     <div className={styles.simplePricing} id="pricing">
       <div className='container-xs3'>
@@ -185,6 +185,9 @@ export default function SimplePricing() {
 
               return (
                 <div className={styles.griditems} key={plan.id || index}>
+                  {plan.name === "Scale" && <div className={styles.mostpopular}>
+                    Most Popular
+                  </div>}
                   <div className={styles.firstList}>
                     <img src={meta.icon} alt={`${plan.name} Icon`} />
                     <div className={styles.textstyle}>

@@ -4,7 +4,7 @@ import styles from './footer.module.scss';
 import Link from 'next/link';
 const FooterLogo = '/assets/logo/footer-logo.svg';
 const TiktokIcon = '/assets/icons/tiktok.svg';
-const TwitterIcon = '/assets/icons/twitter.svg';
+const InstaIcon = '/assets/icons/insta.svg';
 const LinkdinIcon = '/assets/icons/linkdin.svg';
 const YoutubeIcon = '/assets/icons/youtube-outline.svg';
 export default function Footer() {
@@ -31,15 +31,17 @@ export default function Footer() {
               <a href='https://platform.runhelix.ai/auth' target='_blank'>Login</a>
             </div>
             <div className={styles.socialIcon}>
-              <a href='https://www.tiktok.com/notfound' target='_blank'>
-                <img src={TiktokIcon} alt='TiktokIcon' />
-              </a>
-              <img src={TwitterIcon} alt='TwitterIcon' />
               <a href='https://www.linkedin.com/company/run-helix-ai' target='_blank'>
                 <img src={LinkdinIcon} alt='LinkdinIcon' />
               </a>
+              <a href='https://www.instagram.com/runhelix_ai/' target='_blank'>
+                <img src={InstaIcon} alt='InstaIcon' />
+              </a>
               <a href='https://www.youtube.com/@RunHelix_AI' target='_blank'>
                 <img src={YoutubeIcon} alt='YoutubeIcon' />
+              </a>
+              <a href='https://www.tiktok.com/notfound' target='_blank'>
+                <img src={TiktokIcon} alt='TiktokIcon' />
               </a>
             </div>
           </div>
