@@ -56,7 +56,9 @@ export default function MarketingSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                    <button>Get Started</button>
+                    <a href='https://platform.runhelix.ai/auth' target='_blank'>
+                        <button>Get Started</button>
+                    </a>
                 </motion.div>
 
             </div>
