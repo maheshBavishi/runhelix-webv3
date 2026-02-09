@@ -32,7 +32,7 @@
         p {
             color: #7E7E7E;
             text-align: center;
-            font-size: 20px;
+            font-size: 18px;
             font-style: normal;
             font-weight: 510;
             line-height: 28px;
@@ -124,6 +124,34 @@
                 @include font-normal;
                 display: block;
 
+            }
+
+            .yearlyLabel {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                span {
+                    color: #414141;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    @include font-normal;
+                    display: block;
+                }
+
+                .saveBadge {
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    text-transform: uppercase;
+                    background: var(--3, linear-gradient(90deg, #29A6B4 0%, #9ED2C3 100%));
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    margin-left: 6px;
+                }
             }
         }
     }
@@ -420,38 +448,139 @@
 
                         @include respond-to("sm") {
                             font-size: 20px;
-                            margin: 0 0 8px 0;
                         }
                     }
 
                     p {
                         color: #585861;
-                        font-size: 18px;
+                        font-size: 15.9px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: normal;
-                        margin: 0 0 24px 0;
+                        font-weight: var(--font-weight-400, 400);
+                        line-height: var(--line-height-24, 24px);
+                        letter-spacing: var(--letter-spacing--0_48, -0.476px);
                         @include font-normal;
+                        margin: 0 0 24px 0;
+                        min-height: 48px;
 
                         @include respond-to("sm") {
-                            font-size: 16px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            min-height: auto;
                         }
+
                     }
 
                     h4 {
                         color: var(--clikup-webflow-io-cod-gray, var(--color-grey-9, #191615));
-                        font-size: 34px;
+                        font-feature-settings: 'liga' off, 'clig' off;
+                        font-size: 44px;
                         font-style: normal;
-                        font-weight: 600;
-                        @include font-semibold;
+                        font-weight: var(--font-weight-600, 600);
                         line-height: normal;
+                        @include font-bold;
+
+                        @include respond-to("sm") {
+                            font-size: 32px;
+                        }
 
                         sub {
-                            font-size: 20px;
-                            position: relative;
-                            left: -5px;
-                            top: -8px;
-                            color: #585861;
+                            color: #6D6D6D;
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: var(--font-weight-600, 600);
+                            line-height: normal;
+                            @include font-semibold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .agencyIntegration {
+            border-radius: 20px;
+            border: 4px solid rgba(224, 228, 232, 0.50);
+            background: #FFF;
+            padding: 80px 40px;
+            margin: 40px 0 0 0;
+
+            @include respond-to("sm") {
+                padding: 40px 20px;
+                margin: 0;
+            }
+
+            .agencyIntegrationHeader {
+                padding: 0 0 32px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+
+                @include respond-to("sm") {
+                    padding: 0 0 40px 0;
+                }
+
+                img {
+                    display: block;
+                }
+
+                h4 {
+                    color: #121212;
+                    font-size: 32px;
+                    font-style: normal;
+                    text-align: center;
+                    font-weight: 700;
+                    line-height: normal;
+                    @include font-bold;
+
+                    @include respond-to("sm") {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+
+
+            .gridList {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+
+                .items {
+                    padding: 12px 16px;
+                    border-radius: 10000px;
+                    border: 1px solid #E6E6E6;
+                    background: #FFF;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    @include respond-to("sm") {
+                        padding: 10px 14px;
+                    }
+
+                    @include respond-to("sm") {
+                        svg {
+                            min-width: 20px;
+                            min-height: 20px;
+                        }
+                    }
+
+                    span {
+                        display: block;
+                        position: relative;
+                        top: 1px;
+                        color: #62626C;
+                        font-size: 15.9px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: var(--line-height-22_54, 22.54px);
+                        letter-spacing: var(--letter-spacing--0_48, -0.476px);
+                        @include font-medium;
+
+                        @include respond-to("sm") {
+                            font-size: 14px;
+                            line-height: 20px;
                         }
                     }
                 }
@@ -459,93 +588,69 @@
         }
     }
 
-    .agencyIntegration {
-        border-radius: 24px;
-        border: 4px solid rgba(224, 228, 232, 0.50);
-        background: #FFF;
-        backdrop-filter: blur(58px);
-        padding: 50px 24px;
+    .agencySavingsHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px; // More whitespace
 
-        @include respond-to("sm") {
-            padding: 40px 16px;
-            border-radius: 16px;
+        .savingsLabel {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #6B7280; // Gray-500, not Teal
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
-        .agencyIntegrationHeader {
-            padding: 0 0 32px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
+        .savingsAmount {
+            font-size: 24px; // Larger
+            font-weight: 700;
+            color: #111827; // Gray-900 / Dark
+            line-height: 1.2;
 
-            @include respond-to("sm") {
-                padding: 0 0 40px 0;
-            }
-
-            img {
-                display: block;
-            }
-
-            h4 {
-                color: #121212;
-                font-size: 32px;
-                font-style: normal;
-                text-align: center;
-                font-weight: 700;
-                line-height: normal;
-                @include font-bold;
-
-                @include respond-to("sm") {
-                    font-size: 20px;
-                }
+            .sub {
+                font-size: 14px;
+                font-weight: 400;
+                color: #6B7280; // Gray-500
+                margin-left: 2px;
             }
         }
 
+        .savingsNote {
+            font-size: 13px;
+            color: #6B7280; // Gray-500
+            margin-top: 4px;
+            font-weight: 400; // Not bold
+        }
+    }
 
+    .agencySavingsBody {
+        .tradCostLabel {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151; // Gray-700
+            margin-bottom: 16px;
+        }
 
-        .gridList {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
+        .optionBlock {
+            margin-bottom: 16px; // More spacing between blocks
+            padding-left: 12px; // More indentation
+            border-left: 3px solid #29A6B4; // Teal border matches screenshot vertical lines
 
-            .items {
-                padding: 12px 16px;
-                border-radius: 10000px;
-                border: 1px solid #E6E6E6;
-                background: #FFF;
-                display: flex;
-                align-items: center;
-                gap: 10px;
+            .optionLabel {
+                font-size: 14px;
+                font-weight: 600;
+                color: #374151; // Gray-700
+                margin: 0 0 4px 0;
+            }
 
-                @include respond-to("sm") {
-                    padding: 10px 14px;
-                }
-
-                @include respond-to("sm") {
-                    svg {
-                        min-width: 20px;
-                        min-height: 20px;
-                    }
-                }
-
-                span {
-                    display: block;
-                    position: relative;
-                    top: 1px;
-                    color: #62626C;
-                    font-size: 15.9px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: var(--line-height-22_54, 22.54px);
-                    letter-spacing: var(--letter-spacing--0_48, -0.476px);
-                    @include font-medium;
-
-                    @include respond-to("sm") {
-                        font-size: 14px;
-                        line-height: 20px;
-                    }
-                }
+            .optionValue {
+                font-size: 13px;
+                color: #6B7280; // Gray-500
+                margin: 0;
+                line-height: 1.5;
             }
         }
     }
