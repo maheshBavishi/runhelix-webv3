@@ -8,7 +8,7 @@ const Video = '/assets/video/video2.mp4';
 
 
 const videoList = [
-    'https://ffnjmaxakkocvnfuoecn.supabase.co/storage/v1/object/public/ai_videos/37c9297b-2885-4e13-8503-52b61423daa2.mp4',
+    'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/trim_videos/trimmed/4378e5dc-89e0-434f-ab21-ccb3e73bf6f9.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/5921fae9-1084-417e-8089-ef66aeb5b9dc.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/f631aba2-242f-4e7a-ad7d-eacfab71315b.mp4',
     'https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/my-videos/e3240607-4d29-4595-9692-d5e1b0c1f4ca.mp4',
