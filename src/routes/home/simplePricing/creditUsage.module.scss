@@ -1,6 +1,11 @@
+@use '../../../scss/main.scss' as *;
+@use '../../../scss/breakpoints/breakpoints.scss' as *;
+@use '../../../scss/font/font.scss' as *;
+
 .container {
     padding: 0;
-    font-family: var(--font-inter, sans-serif);
+    font-family: var(--font-sf-pro);
+
 }
 
 .header {
@@ -13,7 +18,8 @@
     p {
         font-size: 14px;
         font-weight: 600;
-        color: #111827 !important; // Force dark color
+        color: #111827 !important;
+        @include font-semibold;
         margin: 0;
     }
 }
@@ -54,12 +60,14 @@
 .value {
     font-size: 12px;
     font-weight: 700;
+    @include font-bold;
     font-family: monospace; // font-mono
     color: #29A6B4 !important; // teal
 }
 
 .breakdownTitle {
     font-size: 10px;
+    @include font-bold;
     text-transform: uppercase;
     font-weight: 700;
     color: #6B7280 !important;
@@ -76,6 +84,7 @@
 
 .valueHighlight {
     font-size: 12px;
+    @include font-normal;
     font-weight: 400; // font-mono usually 400
     font-family: monospace;
     color: #29A6B4 !important;
@@ -94,6 +103,7 @@
 
 .valueTotal {
     font-size: 12px;
+    @include font-bold;
     font-weight: 700;
     font-family: monospace;
     color: #111827 !important; // gray-900
