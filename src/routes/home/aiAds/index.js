@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import styles from './aiAds.module.scss';
 import Image from 'next/image';
 import SimpleInterface from '../simpleInterface';
@@ -43,45 +43,48 @@ const stagger = {
 };
 
 export default function AiAds() {
-    const [sliderPosition, setSliderPosition] = useState(50);
-    const [isDragging, setIsDragging] = useState(false);
-    const containerRef = useRef(null);
+    const sliderPos = useMotionValue(50);
+    const clipPath = useTransform(sliderPos, (v) => `inset(0 0 0 ${v}%)`);
+    const handleLeft = useTransform(sliderPos, (v) => `${v}%`);
 
-    const handleMove = (event) => {
-        if (!isDragging && event.type !== 'mousemove' && event.type !== 'touchmove') return;
-        if (isDragging || event.type === 'mousemove' || event.type === 'touchmove') {
+    const containerRef = useRef(null);
+    const rafIdRef = useRef(null);
+    const isDraggingRef = useRef(false);
+
+    const updatePosition = useCallback((clientX) => {
+        if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+
+        rafIdRef.current = requestAnimationFrame(() => {
             const container = containerRef.current;
             if (!container) return;
 
             const rect = container.getBoundingClientRect();
-            const x = (event.pageX || event.touches?.[0]?.pageX) - rect.left;
-            const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
-            setSliderPosition(position);
-        }
+            let x = clientX - rect.left;
+            let position = (x / rect.width) * 100;
+            position = Math.max(0, Math.min(100, position));
+            sliderPos.set(position);
+        });
+    }, [sliderPos]);
+
+    const onPointerDown = (e) => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        container.setPointerCapture(e.pointerId);
+        isDraggingRef.current = true;
+        updatePosition(e.clientX);
     };
 
-    const handleMouseDown = () => setIsDragging(true);
-    const handleMouseUp = () => setIsDragging(false);
+    const onPointerMove = (e) => {
+        if (!isDraggingRef.current) return;
+        updatePosition(e.clientX);
+    };
 
-    useEffect(() => {
-        if (isDragging) {
-            window.addEventListener('mousemove', handleMove);
-            window.addEventListener('mouseup', handleMouseUp);
-            window.addEventListener('touchmove', handleMove);
-            window.addEventListener('touchend', handleMouseUp);
-        } else {
-            window.removeEventListener('mousemove', handleMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-            window.removeEventListener('touchmove', handleMove);
-            window.removeEventListener('touchend', handleMouseUp);
-        }
-        return () => {
-            window.removeEventListener('mousemove', handleMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-            window.removeEventListener('touchmove', handleMove);
-            window.removeEventListener('touchend', handleMouseUp);
-        };
-    }, [isDragging]);
+    const onPointerUp = (e) => {
+        isDraggingRef.current = false;
+    };
+
+    // Note: No useEffect with window listeners needed anymore due to setPointerCapture
 
     return (
         <div className={styles.aiAds}>
@@ -186,19 +189,20 @@ export default function AiAds() {
                             <div
                                 className={styles.compareContainer}
                                 ref={containerRef}
-                                onMouseDown={handleMouseDown}
-                                onTouchStart={handleMouseDown}
-                            // onMouseMove={(e) => !isDragging && handleMove(e)}
+                                onPointerDown={onPointerDown}
+                                onPointerMove={onPointerMove}
+                                onPointerUp={onPointerUp}
+                                style={{ touchAction: 'none' }}
                             >
                                 {/* Left Side: Image */}
                                 <div className={styles.leftImage}>
-                                    <img src={AiAdsImage} alt="Before AI" />
+                                    <img src={AiAdsImage} alt="Before AI" draggable={false} />
                                 </div>
 
                                 {/* Right Side: Video clipped by slider position */}
-                                <div
+                                <motion.div
                                     className={styles.rightVideo}
-                                    style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
+                                    style={{ clipPath }}
                                 >
                                     <video
                                         src={AiAdsVideo}
@@ -206,19 +210,20 @@ export default function AiAds() {
                                         loop
                                         muted
                                         playsInline
+                                        draggable={false}
                                     />
                                     <div className={styles.frame}>
                                         <img src={TiktokFrameImage} alt="TiktokFrameImage" />
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {/* Slider Handle */}
-                                <div
+                                <motion.div
                                     className={styles.handle}
-                                    style={{ left: `${sliderPosition}%` }}
+                                    style={{ left: handleLeft }}
                                 >
                                     <div className={styles.lineGlow} />
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>

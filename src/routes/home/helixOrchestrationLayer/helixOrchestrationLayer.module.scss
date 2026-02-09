@@ -75,6 +75,7 @@
         .leftLineAnimation {
             position: absolute;
             top: 25%;
+            z-index: -1;
             right: -40%;
         }
 
