@@ -4,12 +4,6 @@
 
 .simplePricing {
     padding: 80px 0;
-    overflow-x: hidden;
-    scroll-margin-top: 50px;
-
-    @include respond-to("sm") {
-        padding: 60px 0;
-    }
 
     .title {
         padding: 0 0 16px 0;
@@ -23,16 +17,12 @@
             margin: 0 0 18px 0;
             @include font-semibold;
             text-align: center;
-
-            @include respond-to("md") {
-                font-size: 32px;
-            }
         }
 
         p {
             color: #7E7E7E;
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
             font-style: normal;
             font-weight: 510;
             line-height: 28px;
@@ -115,7 +105,7 @@
                 border-radius: 50%;
             }
 
-            span {
+            >span {
                 color: #414141;
                 font-size: 18px;
                 font-style: normal;
@@ -123,13 +113,12 @@
                 line-height: normal;
                 @include font-normal;
                 display: block;
-
             }
 
             .yearlyLabel {
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                gap: 6px;
 
                 span {
                     color: #414141;
@@ -142,15 +131,14 @@
                 }
 
                 .saveBadge {
-                    font-size: 11px;
-                    font-weight: 700;
-                    letter-spacing: 0.5px;
+                    color: #29A6B4;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: -0.32px;
                     text-transform: uppercase;
-                    background: var(--3, linear-gradient(90deg, #29A6B4 0%, #9ED2C3 100%));
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    margin-left: 6px;
+                    @include font-medium;
                 }
             }
         }
@@ -161,16 +149,6 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
         padding: 40px 0;
-
-        @include respond-to("md") {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include respond-to("sm") {
-            grid-template-columns: repeat(1, 1fr);
-            padding: 20px 0;
-            gap: 20px;
-        }
 
 
         .griditems {
@@ -183,11 +161,6 @@
             flex-direction: column;
             gap: 32px;
             justify-content: space-between;
-
-            @include respond-to("sm") {
-                padding: 16px;
-                border-radius: 16px;
-            }
 
             &:nth-child(2) {
                 border-radius: 24px;
@@ -385,7 +358,6 @@
             .firstList {
                 img {
                     display: block;
-                    max-width: 40px;
                 }
 
                 .allListAlignment {
@@ -445,142 +417,32 @@
                         margin: 0 0 4px 0;
                         line-height: normal;
                         @include font-semibold;
-
-                        @include respond-to("sm") {
-                            font-size: 20px;
-                        }
                     }
 
                     p {
                         color: #585861;
-                        font-size: 15.9px;
+                        font-size: 18px;
                         font-style: normal;
-                        font-weight: var(--font-weight-400, 400);
-                        line-height: var(--line-height-24, 24px);
-                        letter-spacing: var(--letter-spacing--0_48, -0.476px);
-                        @include font-normal;
+                        font-weight: 400;
+                        line-height: normal;
                         margin: 0 0 24px 0;
-                        min-height: 48px;
-
-                        @include respond-to("sm") {
-                            font-size: 14px;
-                            line-height: 20px;
-                            min-height: auto;
-                        }
-
+                        @include font-normal;
                     }
 
                     h4 {
                         color: var(--clikup-webflow-io-cod-gray, var(--color-grey-9, #191615));
-                        font-feature-settings: 'liga' off, 'clig' off;
-                        font-size: 44px;
+                        font-size: 34px;
                         font-style: normal;
-                        font-weight: var(--font-weight-600, 600);
+                        font-weight: 600;
+                        @include font-semibold;
                         line-height: normal;
-                        @include font-bold;
-
-                        @include respond-to("sm") {
-                            font-size: 32px;
-                        }
 
                         sub {
-                            color: #6D6D6D;
-                            font-size: 24px;
-                            font-style: normal;
-                            font-weight: var(--font-weight-600, 600);
-                            line-height: normal;
-                            @include font-semibold;
-                        }
-                    }
-                }
-            }
-        }
-
-        .agencyIntegration {
-            border-radius: 20px;
-            border: 4px solid rgba(224, 228, 232, 0.50);
-            background: #FFF;
-            padding: 80px 40px;
-            margin: 40px 0 0 0;
-
-            @include respond-to("sm") {
-                padding: 40px 20px;
-                margin: 0;
-            }
-
-            .agencyIntegrationHeader {
-                padding: 0 0 32px 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 16px;
-
-                @include respond-to("sm") {
-                    padding: 0 0 40px 0;
-                }
-
-                img {
-                    display: block;
-                }
-
-                h4 {
-                    color: #121212;
-                    font-size: 32px;
-                    font-style: normal;
-                    text-align: center;
-                    font-weight: 700;
-                    line-height: normal;
-                    @include font-bold;
-
-                    @include respond-to("sm") {
-                        font-size: 20px;
-                    }
-                }
-            }
-
-
-
-            .gridList {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 25px;
-
-                .items {
-                    padding: 12px 16px;
-                    border-radius: 10000px;
-                    border: 1px solid #E6E6E6;
-                    background: #FFF;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    @include respond-to("sm") {
-                        padding: 10px 14px;
-                    }
-
-                    @include respond-to("sm") {
-                        svg {
-                            min-width: 20px;
-                            min-height: 20px;
-                        }
-                    }
-
-                    span {
-                        display: block;
-                        position: relative;
-                        top: 1px;
-                        color: #62626C;
-                        font-size: 15.9px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: var(--line-height-22_54, 22.54px);
-                        letter-spacing: var(--letter-spacing--0_48, -0.476px);
-                        @include font-medium;
-
-                        @include respond-to("sm") {
-                            font-size: 14px;
-                            line-height: 20px;
+                            font-size: 20px;
+                            position: relative;
+                            left: -5px;
+                            top: -8px;
+                            color: #585861;
                         }
                     }
                 }
@@ -588,69 +450,51 @@
         }
     }
 
-    .agencySavingsHeader {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 24px; // More whitespace
+    .agencyIntegration {
+        border-radius: 24px;
+        border: 4px solid rgba(224, 228, 232, 0.50);
+        background: #FFF;
+        backdrop-filter: blur(58px);
+        padding: 50px 24px;
 
-        .savingsLabel {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #6B7280; // Gray-500, not Teal
-            display: block;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .savingsAmount {
-            font-size: 24px; // Larger
+        h4 {
+            color: #121212;
+            font-size: 32px;
+            font-style: normal;
+            text-align: center;
+            margin: 0 0 32px 0;
             font-weight: 700;
-            color: #111827; // Gray-900 / Dark
-            line-height: 1.2;
-
-            .sub {
-                font-size: 14px;
-                font-weight: 400;
-                color: #6B7280; // Gray-500
-                margin-left: 2px;
-            }
+            line-height: normal;
+            @include font-bold;
         }
 
-        .savingsNote {
-            font-size: 13px;
-            color: #6B7280; // Gray-500
-            margin-top: 4px;
-            font-weight: 400; // Not bold
-        }
-    }
+        .gridList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
 
-    .agencySavingsBody {
-        .tradCostLabel {
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151; // Gray-700
-            margin-bottom: 16px;
-        }
+            .items {
+                padding: 12px 16px;
+                border-radius: 10000px;
+                border: 1px solid #E6E6E6;
+                background: #FFF;
+                display: flex;
+                align-items: center;
+                gap: 10px;
 
-        .optionBlock {
-            margin-bottom: 16px; // More spacing between blocks
-            padding-left: 12px; // More indentation
-            border-left: 3px solid #29A6B4; // Teal border matches screenshot vertical lines
-
-            .optionLabel {
-                font-size: 14px;
-                font-weight: 600;
-                color: #374151; // Gray-700
-                margin: 0 0 4px 0;
-            }
-
-            .optionValue {
-                font-size: 13px;
-                color: #6B7280; // Gray-500
-                margin: 0;
-                line-height: 1.5;
+                span {
+                    display: block;
+                    position: relative;
+                    top: 1px;
+                    color: #62626C;
+                    font-size: 15.9px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: var(--line-height-22_54, 22.54px);
+                    letter-spacing: var(--letter-spacing--0_48, -0.476px);
+                    @include font-medium;
+                }
             }
         }
     }
