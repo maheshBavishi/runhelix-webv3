@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import styles from './productPhotoshoots.module.scss';
 const Video3 = '/assets/video/video3.mp4';
 const imageList = [
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3bb839f3-b2d9-4a84-bac8-2a9a55a84c18_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/d267b4f2-5b6f-4b9e-b596-6aa698ba9bf0_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/797925b1-fbf8-45c0-9b4d-a67ed558da58_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/17d84221-bfcf-4a15-98da-cc2014cd3dd8_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/3e524dc8-7803-483a-8e88-175b153e9cff_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/315954c5-177e-4e63-999d-c885be8f77e3_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/9a8cb2ee-41d3-4f27-9805-25199def7edf_UGC_image.png",
-    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/9b79e6b9-f206-4bf1-8ec5-6696d35f8c7b_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/a8f7d451-6fd6-440f-bd76-cd750ea40c51_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/d98974da-0b49-4cd9-ae15-f882cc057f05_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/15f716a4-8973-4a41-aea8-205c871fa296_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/b4f153a0-4104-4ffe-96d0-5e12702ec6c9_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/ce556c38-4a46-44a3-a4c1-1e12a01811f3_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/f5b2704c-000d-4528-9875-08cb31e187ad_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/04c795c7-f9a1-454c-8b99-68e9f9fc0481_UGC_image.png",
+    "https://rnhlndmeazutnirvjzzt.supabase.co/storage/v1/object/public/uploaded_image/4a041720-4c98-41cb-8021-050a37887710_UGC_image.png"
 ];
 
 export default function ProductPhotoshoots() {
